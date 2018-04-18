@@ -1,7 +1,10 @@
 page-home {
 
+  .container{
+  }
+
   ion-content {
-    background: url("../../assets/imgs/book-background.jpg");
+    background: url("../../assets/imgs/book-background.jpg") no-repeat center center fixed;
     background-size: cover;
   }
 }
