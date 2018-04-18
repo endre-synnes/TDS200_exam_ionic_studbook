@@ -7,6 +7,17 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
+import { Camera} from "@ionic-native/camera";
+import { Geolocation} from "@ionic-native/geolocation";
+
+import { AngularFireModule } from "angularfire2";
+import {AngularFirestoreModule} from "angularfire2/firestore";
+import {AngularFireAuthModule} from "angularfire2/auth";
+import {AngularFireStorageModule} from "angularfire2/storage";
+import {HttpClientModule} from "@angular/common/http";
+
+import env from './env';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -14,7 +25,15 @@ import { HomePage } from '../pages/home/home';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp, {
+      scrollAssist: false,
+      autoFocusAssist: false
+    }),
+    AngularFireModule.initializeApp(env),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    AngularFireStorageModule,
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -24,7 +43,9 @@ import { HomePage } from '../pages/home/home';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Camera,
+    Geolocation
   ]
 })
 export class AppModule {}
