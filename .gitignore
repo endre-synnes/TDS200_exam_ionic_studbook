@@ -35,4 +35,5 @@ Thumbs.db
 UserInterfaceState.xcuserstate
 
 
-*.env.ts
+*env.ts
+src/app/googleApiEnv.ts
