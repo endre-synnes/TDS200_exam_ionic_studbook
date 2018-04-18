@@ -17,6 +17,7 @@ import {AngularFireStorageModule} from "angularfire2/storage";
 import {HttpClientModule} from "@angular/common/http";
 
 import env from './env';
+import { LocationProvierProvider } from '../providers/location-provier/location-provier';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import env from './env';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Camera,
-    Geolocation
+    Geolocation,
+    LocationProvierProvider
   ]
 })
 export class AppModule {}
