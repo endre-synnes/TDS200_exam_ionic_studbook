@@ -7,18 +7,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
-import { Camera} from "@ionic-native/camera";
-import { Geolocation} from "@ionic-native/geolocation";
-
-import { AngularFireModule } from "angularfire2";
-import {AngularFirestoreModule} from "angularfire2/firestore";
-import {AngularFireAuthModule} from "angularfire2/auth";
-import {AngularFireStorageModule} from "angularfire2/storage";
-import {HttpClientModule} from "@angular/common/http";
-
-import env from './env';
-import { LocationProvierProvider } from '../providers/location-provier/location-provier';
-
 @NgModule({
   declarations: [
     MyApp,
@@ -26,15 +14,7 @@ import { LocationProvierProvider } from '../providers/location-provier/location-
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp, {
-      scrollAssist: false,
-      autoFocusAssist: false
-    }),
-    AngularFireModule.initializeApp(env),
-    AngularFirestoreModule,
-    AngularFireAuthModule,
-    AngularFireStorageModule,
-    HttpClientModule
+    IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -44,10 +24,7 @@ import { LocationProvierProvider } from '../providers/location-provier/location-
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Camera,
-    Geolocation,
-    LocationProvierProvider
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
 export class AppModule {}
