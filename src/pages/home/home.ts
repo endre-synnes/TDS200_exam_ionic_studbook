@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {AngularFirestore} from "angularfire2/firestore";
+import {Book} from "../../models/Book";
+import {Observable} from "rxjs/Observable";
+import {BooksProvider} from "../../providers/books/books";
 
 @Component({
   selector: 'page-home',
@@ -8,8 +11,13 @@ import {AngularFirestore} from "angularfire2/firestore";
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, private af:AngularFirestore) {
+  public allBooks : Observable<Book[]>;
 
+  constructor(public navCtrl: NavController,
+              private af:AngularFirestore,
+              private booksProvider:BooksProvider) {
+
+    this.allBooks = this.booksProvider.getAllBooks();
   }
 
   logOut() {

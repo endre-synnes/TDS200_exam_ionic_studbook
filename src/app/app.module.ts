@@ -20,6 +20,7 @@ import {Geolocation} from "@ionic-native/geolocation";
 import { LocationProvider } from '../providers/location/location';
 import {TabsPage} from "../pages/tabs/tabs";
 import {MyBooksPage} from "../pages/my-books/my-books";
+import { BooksProvider } from '../providers/books/books';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import {MyBooksPage} from "../pages/my-books/my-books";
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     LocationProvider,
     Camera,
-    Geolocation
+    Geolocation,
+    BooksProvider
   ]
 })
 export class AppModule {}
