@@ -18,11 +18,15 @@ import env from "./env";
 import {Camera} from "@ionic-native/camera";
 import {Geolocation} from "@ionic-native/geolocation";
 import { LocationProvider } from '../providers/location/location';
+import {TabsPage} from "../pages/tabs/tabs";
+import {MyBooksPage} from "../pages/my-books/my-books";
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    TabsPage,
+    MyBooksPage
   ],
   imports: [
     BrowserModule,
@@ -39,7 +43,9 @@ import { LocationProvider } from '../providers/location/location';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    TabsPage,
+    MyBooksPage
   ],
   providers: [
     StatusBar,

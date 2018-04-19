@@ -1,3 +1,40 @@
 page-sign-in {
 
+  ion-content {
+    background: url("../../assets/imgs/book-background.jpg") no-repeat center center fixed;
+    background-size: cover;
+
+  }
+
+  .container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    //margin: 0% 10% 0% 0%;
+  }
+
+
+  .title{
+    color: map-get($colors, mediumRed);
+  }
+
+  .txt-input-field{
+    background: map-get($colors, cosmicLatte) !important;
+    border-radius: 3px;
+  }
+
+
+  section{
+    margin-top: 5%;
+  }
+
+
+
+  button{
+    background: map-get($colors, lightTaupe) !important;
+
+  }
 }

@@ -1,13 +1,13 @@
 <ion-header>
   <ion-navbar color="lightTaupe">
-    <ion-title>
-      Books For Sale
-    </ion-title>
-    <ion-buttons>
+    <ion-buttons left>
       <button icon-only ion-button (click)="logOut()">
         <ion-icon name="log-out"></ion-icon>
       </button>
     </ion-buttons>
+    <ion-title>
+      All Books for sale
+    </ion-title>
     <ion-buttons end>
       <button icon-only ion-button (click)="addBookPage()">
         <ion-icon name="add"></ion-icon>
@@ -25,13 +25,5 @@
     </p>
 
   </section>
-
-  <section class="tabs">
-    <ion-tabs>
-      <ion-tab [root]="allBooks" tabTitle="All Books" tabIcon="book"></ion-tab>
-      <ion-tab [root]="MyBooks" tabTitle="My Books" tabIcon="bookmarks"></ion-tab>
-    </ion-tabs>
-  </section>
-
 
 </ion-content>

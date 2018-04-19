@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {AngularFirestore} from "angularfire2/firestore";
 
 /**
  * Generated class for the SignInPage page.
@@ -15,11 +16,31 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class SignInPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  private user = {
+    email: "",
+    password: ""
+  };
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              private af: AngularFirestore) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SignInPage');
   }
 
+  logInUser() {
+    this.af.app.auth()
+      .signInWithEmailAndPassword(this.user.email, this.user.password)
+      .then(response => {
+        console.log(response)
+      })
+      .catch(error => {
+        console.log(error)
+      });
+  }
+
+  registerUser() {
+
+  }
 }
