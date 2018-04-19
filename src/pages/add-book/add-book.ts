@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Camera} from "@ionic-native/camera";
+import {LocationProvider} from "../../providers/location/location";
+import {AngularFirestore} from "angularfire2/firestore";
+import {AngularFireStorage} from "angularfire2/storage";
+import {Book} from "../../models/Book";
 
-/**
- * Generated class for the AddBookPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -15,11 +14,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AddBookPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  book:Book;
+
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private camera: Camera,
+              private location: Geolocation,
+              private locationProvider: LocationProvider,
+              private af: AngularFirestore,
+              private afStorage: AngularFireStorage) {
+
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AddBookPage');
-  }
+
+
+
 
 }
