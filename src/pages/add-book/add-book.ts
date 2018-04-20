@@ -17,11 +17,11 @@ import {Geolocation} from "@ionic-native/geolocation";
 export class AddBookPage {
 
   private book: Book = {
-    author:"Karl Knausgård",
+    author:"",
     price:150,
-    seller:"Jonas",
+    seller:"",
     sold:false,
-    title:"Min Kamp 1",
+    title:"",
     imgUrl:"",
     city:"Oslo"};
 
@@ -39,7 +39,13 @@ export class AddBookPage {
 
 
   addBook(){
+    this.book.seller = this.getCurrentUser();
     this.bookProvider.addBook(this.book);
+  }
+
+
+  getCurrentUser(){
+    return this.af.app.auth().currentUser.email;
   }
 
 
