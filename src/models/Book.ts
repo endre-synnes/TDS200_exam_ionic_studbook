@@ -1,11 +1,11 @@
 export class Book {
-  constructor(public id:string,
-              public author:string,
-              public price:string,
+  constructor(public author:string,
+              public price:number,
               public seller:string,
               public sold:boolean,
               public title:string,
               public imgUrl:string,
-              public city:string){
+              public city:string,
+              public id?:string){
   }
 }
