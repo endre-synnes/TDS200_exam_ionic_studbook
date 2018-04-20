@@ -12,19 +12,34 @@
 
   <ion-grid>
     <ion-row>
-      <ion-label>Title</ion-label>
-      <ion-input class="txt-input" type="text" [(ngModel)]="book.title"></ion-input>
+      <ion-col>
+        <ion-label>Title:</ion-label>
+      </ion-col>
+      <ion-col col-8>
+        <ion-input class="txt-input-field" type="text" [(ngModel)]="book.title"></ion-input>
+      </ion-col>
     </ion-row>
     <ion-row>
-      <ion-label>Price</ion-label>
-      <ion-input class="txt-input" type="number" [(ngModel)]="book.price"></ion-input>
+      <ion-col>
+        <ion-label>Price:</ion-label>
+      </ion-col>
+      <ion-col col-8>
+        <ion-input class="txt-input-field" type="number" [(ngModel)]="book.price"></ion-input>
+      </ion-col>
     </ion-row>
     <ion-row>
-      <ion-label>Author</ion-label>
-      <ion-input class="txt-input" type="text" [(ngModel)]="book.author"></ion-input>
+      <ion-col>
+        <ion-label>Author:</ion-label>
+      </ion-col>
+      <ion-col col-8>
+        <ion-input class="txt-input-field" type="text" [(ngModel)]="book.author"></ion-input>
+      </ion-col>
     </ion-row>
   </ion-grid>
 
+  <section>
+    <button block ion-button (click)="takePicture()">Take Picture</button>
+  </section>
   <section>
     <button block ion-button (click)="addBook()">Add book for sale!</button>
   </section>

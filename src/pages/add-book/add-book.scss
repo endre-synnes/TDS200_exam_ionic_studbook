@@ -1,3 +1,21 @@
 page-add-book {
 
+  .txt-input-field{
+    background: map-get($colors, cosmicLatte) !important;
+    border-radius: 3px;
+  }
+
+  ion-row{
+    margin-bottom: 5%;
+  }
+
+  ion-input{
+    padding: 2px;
+  }
+
+
+  button{
+    background: map-get($colors, lightTaupe) !important;
+
+  }
 }
