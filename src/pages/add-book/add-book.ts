@@ -107,12 +107,12 @@ export class AddBookPage {
         {
           text: "Take Picture",
           icon: "camera",
-          handler: () => this.takePicture(0)
+          handler: () => this.takePicture(1)
         },
         {
           text: "From Archive",
           icon: "photos",
-          handler: () => this.takePicture(1)
+          handler: () => this.takePicture(0)
         },
         {
           text: "Cancel",
@@ -120,6 +120,9 @@ export class AddBookPage {
           role: "cancel"
         }
       ]
-    })
+    });
+
+    actionSheet.present();
+
   }
 }

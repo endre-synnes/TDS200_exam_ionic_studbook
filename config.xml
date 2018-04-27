@@ -92,7 +92,8 @@
     </plugin>
     <engine name="ios" spec="~4.5.4" />
     <plugin name="cordova-plugin-camera" spec="^4.0.3">
-        <variable name="CAMERA_USAGE_DESCRIPTION" value="Need access to camera" />
-        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="Need access to Camera" />
+        <variable name="CAMERA_USAGE_DESCRIPTION" value="need to access camera" />
+        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="need to access photo library" />
     </plugin>
+    <engine name="android" spec="~7.0.0" />
 </widget>
