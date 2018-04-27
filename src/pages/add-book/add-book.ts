@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {IonicPage, NavController, NavParams, normalizeURL, Platform} from 'ionic-angular';
-import {Camera} from "@ionic-native/camera";
+import {ActionSheetController, IonicPage, NavController, NavParams, normalizeURL, Platform} from 'ionic-angular';
+import {Camera, CameraOptions} from "@ionic-native/camera";
 import {LocationProvider} from "../../providers/location/location";
 import {AngularFirestore} from "angularfire2/firestore";
 import {AngularFireStorage} from "angularfire2/storage";
@@ -36,7 +36,8 @@ export class AddBookPage {
               private af: AngularFirestore,
               private afStorage: AngularFireStorage,
               private bookProvider: BooksProvider,
-              private platform: Platform) {
+              private platform: Platform,
+              private actionSheetCtrl: ActionSheetController) {
 
   }
 
@@ -63,15 +64,19 @@ export class AddBookPage {
 
   }
 
-  takePicture(){
-    this.camera.getPicture({
+
+
+  takePicture(sourceType: number){
+    const options: CameraOptions = {
       destinationType: this.platform.is('ios') ? this.camera.DestinationType.FILE_URI : this.camera.DestinationType.DATA_URL,
       quality: 50,
       encodingType: this.camera.EncodingType.JPEG,
-      cameraDirection: this.camera.Direction.BACK,
       correctOrientation: true,
-      mediaType: this.camera.MediaType.PICTURE
-    })
+      mediaType: this.camera.MediaType.PICTURE,
+      sourceType: sourceType
+    };
+
+    this.camera.getPicture(options)
       .then( (imageData) => {
 
         let base64Image = null;
@@ -84,7 +89,9 @@ export class AddBookPage {
 
         this.imageString = base64Image;
 
-      }).catch(console.log)
+      }, (err) => {
+
+      });
   }
 
 
@@ -93,5 +100,26 @@ export class AddBookPage {
   }
 
 
-
+  presentPictureOptions() {
+    let actionSheet = this.actionSheetCtrl.create({
+      title: "Add Picture",
+      buttons: [
+        {
+          text: "Take Picture",
+          icon: "camera",
+          handler: () => this.takePicture(0)
+        },
+        {
+          text: "From Archive",
+          icon: "photos",
+          handler: () => this.takePicture(1)
+        },
+        {
+          text: "Cancel",
+          icon: "cancel",
+          role: "cancel"
+        }
+      ]
+    })
+  }
 }
