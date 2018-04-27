@@ -66,6 +66,7 @@ export class AddBookPage {
   takePicture(){
     this.camera.getPicture({
       destinationType: this.platform.is('ios') ? this.camera.DestinationType.FILE_URI : this.camera.DestinationType.DATA_URL,
+      quality: 50,
       encodingType: this.camera.EncodingType.JPEG,
       cameraDirection: this.camera.Direction.BACK,
       correctOrientation: true,

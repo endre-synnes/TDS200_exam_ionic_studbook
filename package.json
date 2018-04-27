@@ -50,7 +50,6 @@
   "description": "An Ionic project",
   "cordova": {
     "plugins": {
-      "cordova-plugin-camera": {},
       "cordova-plugin-geolocation": {
         "GEOLOCATION_USAGE_DESCRIPTION": "To get your current position"
       },
@@ -58,7 +57,11 @@
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-ionic-webview": {},
-      "cordova-plugin-ionic-keyboard": {}
+      "cordova-plugin-ionic-keyboard": {},
+      "cordova-plugin-camera": {
+        "CAMERA_USAGE_DESCRIPTION": "Need access to camera",
+        "PHOTOLIBRARY_USAGE_DESCRIPTION": "Need access to Camera"
+      }
     },
     "platforms": [
       "ios"

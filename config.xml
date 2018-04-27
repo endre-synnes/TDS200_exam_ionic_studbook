@@ -87,9 +87,12 @@
     <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="^1.2.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
-    <plugin name="cordova-plugin-camera" spec="~4.0.3" />
     <plugin name="cordova-plugin-geolocation" spec="~4.0.1">
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="To get your current position" />
     </plugin>
     <engine name="ios" spec="~4.5.4" />
+    <plugin name="cordova-plugin-camera" spec="^4.0.3">
+        <variable name="CAMERA_USAGE_DESCRIPTION" value="Need access to camera" />
+        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="Need access to Camera" />
+    </plugin>
 </widget>
