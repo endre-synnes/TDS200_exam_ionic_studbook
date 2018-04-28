@@ -44,28 +44,30 @@ export class AddBookPage {
 
 
   addBook(){
+    if (this.uploadBase64 !== "") {
 
-    this.book.seller = this.getCurrentUser();
+      this.book.seller = this.getCurrentUser();
 
-    let imgFileName = `${this.book.seller}_${new Date().getTime()}.png`;
-    console.log(imgFileName);
+      let imgFileName = `${this.book.seller}_${new Date().getTime()}.png`;
+      console.log(imgFileName);
 
-    let task = this.afStorage
-      .ref(imgFileName)
-      .putString(this.uploadBase64, 'base64', {contentType: 'image/png'});
+      let task = this.afStorage
+        .ref(imgFileName)
+        .putString(this.uploadBase64, 'base64', {contentType: 'image/png'});
 
-    console.log("Uploaded image");
+      console.log("Uploaded image");
 
-    let uploadEvent = task.downloadURL();
+      let uploadEvent = task.downloadURL();
 
-    console.log("Downloading url");
+      console.log("Downloading url");
 
-    uploadEvent.subscribe((uploadImageUrl) => {
-      this.book.imgUrl = uploadImageUrl;
-      this.bookProvider.addBook(this.book)
-        .then(() => this.navCtrl.pop())
-        .catch(console.log)
-    });
+      uploadEvent.subscribe((uploadImageUrl) => {
+        this.book.imgUrl = uploadImageUrl;
+        this.bookProvider.addBook(this.book)
+          .then(() => this.navCtrl.pop())
+          .catch(console.log)
+      });
+    }
 
   }
 
