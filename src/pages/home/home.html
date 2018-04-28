@@ -21,8 +21,11 @@
   <section class="container">
     <ion-list>
       <ion-item *ngFor="let book of allBooks | async">
-        <ion-label>{{book.title}}</ion-label>
-        <ion-label>{{book.price}}</ion-label>
+        <ion-card>
+          <img src="{{book.imageURL}}">
+          <div class="card-title">{{book.title}}</div>
+          <div class="card-subtitle">Price: {{book.price}}</div>
+        </ion-card>
       </ion-item>
     </ion-list>
 
