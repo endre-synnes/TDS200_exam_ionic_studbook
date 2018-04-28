@@ -95,7 +95,6 @@ export class AddBookPage {
         else
           this.previewImage = "data:image/jpeg;base64," + imageData;
       }, (err) => {
-
       });
   }
 
