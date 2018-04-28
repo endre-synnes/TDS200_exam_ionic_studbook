@@ -1,5 +1,13 @@
 import { Component } from '@angular/core';
-import {ActionSheetController, IonicPage, NavController, NavParams, normalizeURL, Platform} from 'ionic-angular';
+import {
+  ActionSheetController,
+  IonicPage,
+  LoadingController,
+  NavController,
+  NavParams,
+  normalizeURL,
+  Platform
+} from 'ionic-angular';
 import {Camera, CameraOptions} from "@ionic-native/camera";
 import {LocationProvider} from "../../providers/location/location";
 import {AngularFirestore} from "angularfire2/firestore";
@@ -38,13 +46,19 @@ export class AddBookPage {
               private afStorage: AngularFireStorage,
               private bookProvider: BooksProvider,
               private platform: Platform,
-              private actionSheetCtrl: ActionSheetController) {
+              private actionSheetCtrl: ActionSheetController,
+              private loadingCtrl: LoadingController) {
 
   }
 
 
   addBook(){
     if (this.uploadBase64 !== "") {
+
+      let loading = this.loadingCtrl.create({
+        content : "Uploading book...",
+      });
+      loading.present();
 
       this.book.seller = this.getCurrentUser();
 
@@ -64,8 +78,11 @@ export class AddBookPage {
       uploadEvent.subscribe((uploadImageUrl) => {
         this.book.imgUrl = uploadImageUrl;
         this.bookProvider.addBook(this.book)
-          .then(() => this.navCtrl.pop())
-          .catch(console.log)
+          .then(() => {
+            loading.dismissAll();
+            this.navCtrl.pop();
+          }).catch( () =>
+            loading.dismissAll())
       });
     }
 
