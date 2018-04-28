@@ -73,7 +73,8 @@ export class AddBookPage {
 
   takePicture(sourceType: number){
     const options: CameraOptions = {
-      destinationType: this.platform.is('ios') ? this.camera.DestinationType.FILE_URI : this.camera.DestinationType.DATA_URL,
+      //destinationType: this.platform.is('ios') ? this.camera.DestinationType.FILE_URI : this.camera.DestinationType.DATA_URL,
+      destinationType: this.camera.DestinationType.DATA_URL,
       quality: 50,
       encodingType: this.camera.EncodingType.JPEG,
       correctOrientation: true,
