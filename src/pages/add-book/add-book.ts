@@ -25,7 +25,8 @@ export class AddBookPage {
     imgUrl:"",
     city:"Oslo"};
 
-  private imageString: string = "";
+  private previewImage: string = "";
+  private uploadBase64: string = "";
 
 
   constructor(public navCtrl: NavController,
@@ -51,7 +52,7 @@ export class AddBookPage {
 
     let task = this.afStorage
       .ref(imgFileName)
-      .putString(this.imageString, 'base64', {contentType: 'image/png'});
+      .putString(this.uploadBase64, 'base64', {contentType: 'image/png'});
 
     console.log("Uploaded image");
 
@@ -83,16 +84,13 @@ export class AddBookPage {
     this.camera.getPicture(options)
       .then( (imageData) => {
 
-        let base64Image = null;
+        this.uploadBase64 = imageData;
 
         //get photo from the camera based on platform type
         if (this.platform.is('ios'))
-          base64Image = normalizeURL(imageData);
+          this.previewImage = normalizeURL(imageData);
         else
-          base64Image = "data:image/jpeg;base64," + imageData;
-
-        this.imageString = base64Image;
-
+          this.previewImage = "data:image/jpeg;base64," + imageData;
       }, (err) => {
 
       });
