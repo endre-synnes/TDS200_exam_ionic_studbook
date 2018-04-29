@@ -15,6 +15,7 @@ export class MyBooksPage {
   user:any;
   userEmail:string;
   currentUserBooks:Observable<Book[]>;
+  booksForSale:Observable<Book[]>;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -24,7 +25,12 @@ export class MyBooksPage {
     this.user = af.app.auth().currentUser;
     this.userEmail = this.user.email;
 
-    this.currentUserBooks = booksProvider.getYourBooks(this.userEmail)
+    this.currentUserBooks = booksProvider.getYourBooks(this.userEmail);
+
+    this.booksForSale = this.currentUserBooks
+      .map( arr => arr.filter(
+        book => book.sold === false
+      ));
     console.log(this.userEmail)
 
   }

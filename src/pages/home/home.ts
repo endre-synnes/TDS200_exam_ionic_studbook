@@ -17,7 +17,7 @@ export class HomePage {
               private af:AngularFirestore,
               private booksProvider:BooksProvider) {
 
-    this.allBooks = this.booksProvider.getAllBooks();
+    this.allBooks = this.booksProvider.getAllBooksForSale();
   }
 
   logOut() {

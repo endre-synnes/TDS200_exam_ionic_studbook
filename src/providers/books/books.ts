@@ -32,6 +32,12 @@ export class BooksProvider {
     return this.allBooks;
   }
 
+  getAllBooksForSale(){
+    return this.getAllBooks().map(
+      array => array.filter(
+        book => book.sold === false));
+  }
+
 
   getYourBooks(email:string){
     this.yourBooks = this.getAllBooks().map(

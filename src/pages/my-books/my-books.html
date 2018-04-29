@@ -6,7 +6,7 @@
         <ion-icon name="log-out"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title>My Books</ion-title>
+    <ion-title>My Books for sale</ion-title>
     <ion-buttons end>
       <button icon-only ion-button (click)="goToAccount()">
         <ion-icon name="contact"></ion-icon>
@@ -22,9 +22,9 @@
 
   <section class="container">
     <ion-list>
-      <ion-item *ngFor="let book of currentUserBooks | async">
-        <ion-label>{{book.title}}</ion-label>
-        <ion-label>{{book.price}}</ion-label>
+      <ion-item *ngFor="let book of booksForSale | async">
+        <ion-label>Title: {{book.title}}</ion-label>
+        <ion-label col-4>Price: {{book.price}}</ion-label>
       </ion-item>
     </ion-list>
   </section>

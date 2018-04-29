@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the AccountPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import {BooksProvider} from "../../providers/books/books";
+import {Observable} from "rxjs/Observable";
+import {Book} from "../../models/Book";
+import {AngularFirestore} from "angularfire2/firestore";
 
 @IonicPage()
 @Component({
@@ -15,7 +12,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AccountPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  private mySoldBooks : Observable<Book[]>;
+  private email: string;
+
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private af: AngularFirestore,
+              private booksProvider: BooksProvider) {
+
+    this.email = this.af.app.auth().currentUser.email;
+    this.loadBooks()
+  }
+
+
+  loadBooks(){
+    this.mySoldBooks = this.booksProvider
+      .getYourBooks(this.email)
+      .map(array => array.filter(
+        book => book.sold === true
+      ));
   }
 
   ionViewDidLoad() {

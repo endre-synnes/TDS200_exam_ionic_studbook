@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {
-  ActionSheetController,
+  ActionSheetController, AlertController,
   IonicPage,
   LoadingController,
   NavController,
@@ -52,7 +52,9 @@ export class AddBookPage {
               private actionSheetCtrl: ActionSheetController,
               private loadingCtrl: LoadingController,
               private barcodeScanner: BarcodeScanner,
-              private isbnProvider: IsbnProvider) {
+              private isbnProvider: IsbnProvider,
+              private alertCtrl: AlertController
+              ) {
 
   }
 
@@ -185,7 +187,14 @@ export class AddBookPage {
             this.book.title = json.items[0].volumeInfo.title;
             this.book.author = json.items[0].volumeInfo.authors[0];
           }
-        })
+        }).catch(() => {
+          let alert = this.alertCtrl.create({
+            title: "Not Found",
+            subTitle: "This book is not in our database",
+            buttons: ['Dismiss']
+          });
+          alert.present();
+      })
 
 
     }).catch( err => {
