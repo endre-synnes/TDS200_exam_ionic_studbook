@@ -15,6 +15,7 @@ import {AngularFireStorage} from "angularfire2/storage";
 import {Book} from "../../models/Book";
 import {BooksProvider} from "../../providers/books/books";
 import {Geolocation} from "@ionic-native/geolocation";
+import {BarcodeScanner} from "@ionic-native/barcode-scanner";
 
 
 @IonicPage()
@@ -47,7 +48,8 @@ export class AddBookPage {
               private bookProvider: BooksProvider,
               private platform: Platform,
               private actionSheetCtrl: ActionSheetController,
-              private loadingCtrl: LoadingController) {
+              private loadingCtrl: LoadingController,
+              private barcodeScanner: BarcodeScanner) {
 
   }
 
@@ -164,5 +166,14 @@ export class AddBookPage {
     }).catch( error => {
       console.log(error);
     })
+  }
+
+
+  scanBarcode(){
+    this.barcodeScanner.scan().then( barcodeData => {
+      console.log('Barcode data', barcodeData);
+    }).catch( err => {
+      console.log('error', err);
+    });
   }
 }

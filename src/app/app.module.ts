@@ -21,6 +21,7 @@ import { LocationProvider } from '../providers/location/location';
 import {TabsPage} from "../pages/tabs/tabs";
 import {MyBooksPage} from "../pages/my-books/my-books";
 import { BooksProvider } from '../providers/books/books';
+import {BarcodeScanner} from "@ionic-native/barcode-scanner";
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { BooksProvider } from '../providers/books/books';
     LocationProvider,
     Camera,
     Geolocation,
-    BooksProvider
+    BooksProvider,
+    BarcodeScanner
   ]
 })
 export class AppModule {}

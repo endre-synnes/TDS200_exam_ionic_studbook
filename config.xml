@@ -96,4 +96,5 @@
         <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="need to access photo library" />
     </plugin>
     <engine name="android" spec="~7.0.0" />
+    <plugin name="phonegap-plugin-barcodescanner" spec="^7.1.2" />
 </widget>

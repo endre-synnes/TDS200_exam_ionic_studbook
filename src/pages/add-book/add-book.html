@@ -43,6 +43,9 @@
   <section>
     <button block ion-button (click)="addBook()">Add book for sale!</button>
   </section>
+  <section>
+    <button block ion-button (click)="scanBarcode()">Scan barcode</button>
+  </section>
 
   <ion-card>
     <img *ngIf="previewImage.length > 0" [src]="'data:image/jpg;base64,' + previewImage">
