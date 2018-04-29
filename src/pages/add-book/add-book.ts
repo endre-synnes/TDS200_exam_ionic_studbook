@@ -176,9 +176,9 @@ export class AddBookPage {
     this.barcodeScanner.scan().then( barcodeData => {
       console.log('Barcode data', barcodeData.text);
 
-      this.isbnProvider.getBookInformation(barcodeData)
+      this.isbnProvider.getBookInformation(barcodeData.text)
         .then( (json: any) => {
-          if (json.toString().length === 0){
+          if (json.length === 0){
             console.log("empty");
           }else {
             this.book.isbn = barcodeData.text;
