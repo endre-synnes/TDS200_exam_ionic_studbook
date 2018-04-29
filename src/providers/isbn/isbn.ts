@@ -17,7 +17,7 @@ export class IsbnProvider {
 
   getBookInformation(isbn){
     return new Promise((resolve, reject) => {
-      this.http.get(`http://openlibrary.org/api/books?bibkeys=ISBN:${isbn}&jscmd=data&format=json`)
+      this.http.get(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`)
         .subscribe(
           function (data) {
             resolve(data);

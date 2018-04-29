@@ -181,11 +181,9 @@ export class AddBookPage {
           if (json.toString().length === 0){
             console.log("empty");
           }else {
-            let root = "ISBN:"+barcodeData.text;
             this.book.isbn = barcodeData.text;
-            console.log(json.toString());
-            this.book.title = json["ISBN:"+barcodeData.text].title;
-            this.book.author = json["ISBN:"+barcodeData.text].authors[0].name;
+            this.book.title = json.items[0].volumeInfo.title;
+            this.book.author = json.items[0].volumeInfo.authors[0];
           }
         })
 
