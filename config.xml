@@ -90,11 +90,10 @@
     <plugin name="cordova-plugin-geolocation" spec="~4.0.1">
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="To get your current position" />
     </plugin>
-    <engine name="ios" spec="~4.5.4" />
     <plugin name="cordova-plugin-camera" spec="^4.0.3">
         <variable name="CAMERA_USAGE_DESCRIPTION" value="need to access camera" />
         <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="need to access photo library" />
     </plugin>
     <engine name="android" spec="~7.0.0" />
-    <plugin name="phonegap-plugin-barcodescanner" spec="^7.1.2" />
+    <engine name="ios" spec="~4.5.4" />
 </widget>
