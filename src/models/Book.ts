@@ -6,6 +6,7 @@ export class Book {
               public title:string,
               public imgUrl:string,
               public city:string,
-              public id?:string){
+              public id?:string,
+              public isbn?:string){
   }
 }

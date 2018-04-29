@@ -16,6 +16,7 @@ import {Book} from "../../models/Book";
 import {BooksProvider} from "../../providers/books/books";
 import {Geolocation} from "@ionic-native/geolocation";
 import {BarcodeScanner} from "@ionic-native/barcode-scanner";
+import {IsbnProvider} from "../../providers/isbn/isbn";
 
 
 @IonicPage()
@@ -32,7 +33,8 @@ export class AddBookPage {
     sold:false,
     title:"",
     imgUrl:"",
-    city:""};
+    city:"",
+    isbn:""};
 
   private previewImage: string = "";
   private uploadBase64: string = "";
@@ -49,7 +51,8 @@ export class AddBookPage {
               private platform: Platform,
               private actionSheetCtrl: ActionSheetController,
               private loadingCtrl: LoadingController,
-              private barcodeScanner: BarcodeScanner) {
+              private barcodeScanner: BarcodeScanner,
+              private isbnProvider: IsbnProvider) {
 
   }
 
@@ -171,7 +174,20 @@ export class AddBookPage {
 
   scanBarcode(){
     this.barcodeScanner.scan().then( barcodeData => {
-      console.log('Barcode data', barcodeData);
+      console.log('Barcode data', barcodeData.text);
+
+      this.isbnProvider.getBookInformation(barcodeData)
+        .then( (json: any) => {
+          if (json.toString().length === 0){
+            console.log("empty");
+          }else {
+            this.book.isbn = barcodeData.text;
+            this.book.title = json.result.title;
+            this.book.author = json.result.authors[0].name;
+          }
+        })
+
+
     }).catch( err => {
       console.log('error', err);
     });
