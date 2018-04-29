@@ -163,7 +163,7 @@ export class AddBookPage {
           if (place.error_message){
             console.log(place.error_message)
           } else {
-            this.book.city = place.result[1].formatted_address;
+            this.book.city = place.results[1].formatted_address;
           }
         });
     }).catch( error => {
@@ -181,9 +181,10 @@ export class AddBookPage {
           if (json.toString().length === 0){
             console.log("empty");
           }else {
+            let root = "ISBN:"+barcodeData.text;
             this.book.isbn = barcodeData.text;
-            this.book.title = json.result.title;
-            this.book.author = json.result.authors[0].name;
+            this.book.title = json[root].title;
+            this.book.author = json[root].authors[0].name;
           }
         })
 
