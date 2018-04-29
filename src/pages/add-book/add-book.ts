@@ -31,7 +31,7 @@ export class AddBookPage {
     sold:false,
     title:"",
     imgUrl:"",
-    city:"Oslo"};
+    city:""};
 
   private previewImage: string = "";
   private uploadBase64: string = "";
@@ -91,6 +91,8 @@ export class AddBookPage {
 
 
   takePicture(sourceType: number){
+    this.setLocationName();
+
     const options: CameraOptions = {
       //destinationType: this.platform.is('ios') ? this.camera.DestinationType.FILE_URI : this.camera.DestinationType.DATA_URL,
       destinationType: this.camera.DestinationType.DATA_URL,
@@ -142,8 +144,25 @@ export class AddBookPage {
         }
       ]
     });
-
     actionSheet.present();
+  }
 
+
+  setLocationName(){
+    this.location.getCurrentPosition({
+      enableHighAccuracy: true
+    }).then( coordinates => {
+      this.locationProvider.
+        getLocation(coordinates.coords.latitude, coordinates.coords.longitude)
+        .then((place: any) => {
+          if (place.error_message){
+            console.log(place.error_message)
+          } else {
+            this.book.city = place.result[1].formatted_address;
+          }
+        });
+    }).catch( error => {
+      console.log(error);
+    })
   }
 }
