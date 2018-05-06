@@ -3,15 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {BooksProvider} from "../../providers/books/books";
 import {AngularFirestore, AngularFirestoreCollection} from "angularfire2/firestore";
 import {Observable} from "rxjs/Observable";
-import {Book} from "../../models/Book";
 import {Messages} from "../../models/Messages";
-
-/**
- * Generated class for the MessagesPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -22,7 +14,6 @@ export class MessagesPage {
 
   private email: string;
   private messages: Observable<Messages[]>;
-  private yourBooks: Observable<Book[]>;
   private collection : AngularFirestoreCollection<Messages>;
 
 
@@ -32,14 +23,14 @@ export class MessagesPage {
               private af: AngularFirestore) {
     this.email = af.app.auth().currentUser.email;
     this.collection = af.collection<Messages>("messages");
-
+    this.loadAllMessagesBasedOnBook();
   }
 
-  public loadAllMessagesBasedOnBook(bookId: any) {
-    return this.getAllMessages()
+  public loadAllMessagesBasedOnBook() {
+    this.messages = this.getAllMessages()
       .map(arr => {
-        return arr.filter(book =>
-          book.bookId === bookId)
+        return arr.filter(messages =>
+          messages.receiver === this.email)
       });
   }
 
@@ -67,4 +58,10 @@ export class MessagesPage {
     console.log('ionViewDidLoad MessagesPage');
   }
 
+  goToConversation(messages: Messages) {
+    this.navCtrl.push('ConversationPage', {
+      messages,
+      messagesCollection: this.collection
+    });
+  }
 }

@@ -15,6 +15,16 @@
 
 <ion-content padding>
 
+  <section>
+    <h2>Conversations:</h2>
+  </section>
 
+  <section class="container">
+    <ion-list>
+      <ion-item *ngFor="let mess of messages | async">
+        <ion-label (click)="goToConversation(mess)">Sender: {{mess.sender}}</ion-label>
+      </ion-item>
+    </ion-list>
+  </section>
 
 </ion-content>
