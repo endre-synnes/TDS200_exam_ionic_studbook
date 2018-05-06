@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {AngularFirestore} from "angularfire2/firestore";
+import {SignUpPage} from "../sign-up/sign-up";
 
 /**
  * Generated class for the SignInPage page.
@@ -41,6 +42,6 @@ export class SignInPage {
   }
 
   registerUser() {
-
+    this.navCtrl.push('SignUpPage')
   }
 }

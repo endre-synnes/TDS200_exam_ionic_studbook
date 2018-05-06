@@ -23,6 +23,7 @@ import {MyBooksPage} from "../pages/my-books/my-books";
 import { BooksProvider } from '../providers/books/books';
 import {BarcodeScanner} from "@ionic-native/barcode-scanner";
 import { IsbnProvider } from '../providers/isbn/isbn';
+import { ProfileProvider } from '../providers/profile/profile';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { IsbnProvider } from '../providers/isbn/isbn';
     Geolocation,
     BooksProvider,
     BarcodeScanner,
-    IsbnProvider
+    IsbnProvider,
+    ProfileProvider
   ]
 })
 export class AppModule {}

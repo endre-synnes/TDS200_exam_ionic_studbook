@@ -4,6 +4,8 @@ import {BooksProvider} from "../../providers/books/books";
 import {Observable} from "rxjs/Observable";
 import {Book} from "../../models/Book";
 import {AngularFirestore} from "angularfire2/firestore";
+import {Profile} from "../../models/Profile";
+import {ProfileProvider} from "../../providers/profile/profile";
 
 @IonicPage()
 @Component({
@@ -13,21 +15,22 @@ import {AngularFirestore} from "angularfire2/firestore";
 export class AccountPage {
 
   private mySoldBooks : Observable<Book[]>;
-  private email: string;
+  private profile: Profile;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private af: AngularFirestore,
-              private booksProvider: BooksProvider) {
+              private booksProvider: BooksProvider,
+              private profilePovider: ProfileProvider) {
 
-    this.email = this.af.app.auth().currentUser.email;
+    this.profile = this.profilePovider.getProfile(this.af.app.auth().currentUser.email);
     this.loadBooks()
   }
 
 
   loadBooks(){
     this.mySoldBooks = this.booksProvider
-      .getYourBooks(this.email)
+      .getYourBooks(this.profile.email)
       .map(array => array.filter(
         book => book.sold === true
       ));
