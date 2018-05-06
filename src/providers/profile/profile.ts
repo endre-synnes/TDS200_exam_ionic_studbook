@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {AngularFirestore, AngularFirestoreCollection} from "angularfire2/firestore";
 import {Profile} from "../../models/Profile";
-import {Book} from "../../models/Book";
 import {Observable} from "rxjs/Observable";
 
 /*
@@ -36,7 +35,7 @@ export class ProfileProvider {
 
 
   getProfiles(){
-    return this.collection.snapshotChanges()
+    this.profiles = this.collection.snapshotChanges()
       .map(actions => {
         return actions.map(action => {
           let data = action.payload.doc.data() as Profile;
@@ -48,14 +47,8 @@ export class ProfileProvider {
           }
         });
       });
-  }
 
-  getProfile(email:string){
-    this.profiles = this.getProfiles().map(
-      array => array.filter(
-        profile => profile.email === email));
-
-    return this.profiles[0];
+    return this.profiles;
   }
 
 }

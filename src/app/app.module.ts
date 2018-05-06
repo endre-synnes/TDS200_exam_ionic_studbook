@@ -24,13 +24,15 @@ import { BooksProvider } from '../providers/books/books';
 import {BarcodeScanner} from "@ionic-native/barcode-scanner";
 import { IsbnProvider } from '../providers/isbn/isbn';
 import { ProfileProvider } from '../providers/profile/profile';
+import {MessagesPage} from "../pages/messages/messages";
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     TabsPage,
-    MyBooksPage
+    MyBooksPage,
+    MessagesPage
   ],
   imports: [
     BrowserModule,
@@ -49,7 +51,8 @@ import { ProfileProvider } from '../providers/profile/profile';
     MyApp,
     HomePage,
     TabsPage,
-    MyBooksPage
+    MyBooksPage,
+    MessagesPage
   ],
   providers: [
     StatusBar,

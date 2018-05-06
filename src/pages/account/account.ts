@@ -15,6 +15,8 @@ import {ProfileProvider} from "../../providers/profile/profile";
 export class AccountPage {
 
   private mySoldBooks : Observable<Book[]>;
+  private allProfiles : Observable<Profile[]>;
+  private email: string;
   private profile: Profile;
 
   constructor(public navCtrl: NavController,
@@ -23,14 +25,18 @@ export class AccountPage {
               private booksProvider: BooksProvider,
               private profilePovider: ProfileProvider) {
 
-    this.profile = this.profilePovider.getProfile(this.af.app.auth().currentUser.email);
+    this.email = this.af.app.auth().currentUser.email;
+
+    this.allProfiles = profilePovider.getProfiles();
+    this.allProfiles.forEach( console.log);
+
     this.loadBooks()
   }
 
 
   loadBooks(){
     this.mySoldBooks = this.booksProvider
-      .getYourBooks(this.profile.email)
+      .getYourBooks(this.email)
       .map(array => array.filter(
         book => book.sold === true
       ));
