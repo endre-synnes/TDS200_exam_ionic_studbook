@@ -11,6 +11,7 @@
       <button icon-only ion-button (click)="goToAccount()">
         <ion-icon name="contact"></ion-icon>
       </button>
+
     </ion-buttons>
 
   </ion-navbar>
@@ -22,10 +23,19 @@
 
   <section class="container">
     <ion-list>
-      <ion-item *ngFor="let book of booksForSale | async">
-        <ion-label>Title: {{book.title}}</ion-label>
-        <ion-label col-4>Price: {{book.price}}</ion-label>
-      </ion-item>
+      <ion-card *ngFor="let book of booksForSale | async">
+        <ion-card-header>Title: {{book.title}}</ion-card-header>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-9>
+              <ion-card-content>Price: {{book.price}}</ion-card-content>
+            </ion-col>
+            <ion-col col-2 style="float: right">
+              <button style="float: right" ion-button (click)="markAsSold(book)">Sell</button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card>
     </ion-list>
   </section>
 

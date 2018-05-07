@@ -8,4 +8,9 @@ page-my-books {
     background-size: cover;
   }
 
+  button{
+    background: map-get($colors, lightTaupe) !important;
+
+  }
+
 }

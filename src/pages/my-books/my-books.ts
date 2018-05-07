@@ -46,4 +46,8 @@ export class MyBooksPage {
   logOut(){
     this.af.app.auth().signOut();
   }
+
+  markAsSold(book) {
+    this.booksProvider.markBookAsSold(book);
+  }
 }

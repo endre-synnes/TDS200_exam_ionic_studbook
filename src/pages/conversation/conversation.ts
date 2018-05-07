@@ -29,6 +29,7 @@ export class ConversationPage {
   private chatInput:string;
   private email:string;
   private sold:boolean;
+  private id:string;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -45,6 +46,7 @@ export class ConversationPage {
         this.title = book.title;
         this.price = book.price;
         this.sold = book.sold;
+        this.id = book.id;
       });
 
 

@@ -10,8 +10,7 @@
   <section class="conversation-title">
     <h1>{{title}}</h1>
     <h3>Prce: {{price}},- kr</h3>
-    <button ion-button *ngIf="messages.receiver === email" (click)="markAsSold()">Mark As Sold</button>
-    <ion-label *ngIf="sold" style="color: red">Sold</ion-label>
+    <h4 *ngIf="sold" style="color: red; size: 1.5em">Sold</h4>
   </section>
 
   <section class="container">
