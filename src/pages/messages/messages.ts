@@ -16,7 +16,6 @@ export class MessagesPage {
 
   private email: string;
   private messages: Observable<Messages[]>;
-  private collection : AngularFirestoreCollection<Messages>;
 
 
   constructor(public navCtrl: NavController,
@@ -25,35 +24,9 @@ export class MessagesPage {
               private af: AngularFirestore,
               private messagesProvider: MessagesProvider) {
     this.email = af.app.auth().currentUser.email;
-    this.collection = af.collection<Messages>("messages");
-    this.loadAllMessagesBasedOnEmail();
+    this.messages = this.messagesProvider.loadAllMessagesBasedOnEmail(this.email);
   }
 
-  public loadAllMessagesBasedOnEmail() {
-    this.messages = this.getAllMessages()
-      .map(arr => {
-        return arr.filter(messages =>
-          messages.receiver === this.email || messages.sender === this.email)
-      });
-  }
-
-
-
-  private getAllMessages(){
-    this.messages = this.collection.snapshotChanges()
-      .map(actions => {
-        return actions.map(action => {
-          let data = action.payload.doc.data() as Messages;
-          let id = action.payload.doc.id;
-
-          return {
-            id,
-            ...data
-          }
-        });
-      });
-    return this.messages;
-  }
 
   checkSender(message:Messages){
     return message.sender === this.email;
@@ -65,9 +38,6 @@ export class MessagesPage {
   }
 
   goToConversation(messages: Messages) {
-    this.navCtrl.push('ConversationPage', {
-      messages,
-      messagesCollection: this.collection
-    });
+    this.navCtrl.push('ConversationPage', {messages});
   }
 }

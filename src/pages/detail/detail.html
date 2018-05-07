@@ -15,4 +15,11 @@
 
 <ion-content padding>
 
+  <section>
+    <ion-label fixed>Text</ion-label>
+    <ion-input class="txt-input-field" type="text" [(ngModel)]="text"></ion-input>
+  </section>
+
+  <button ion-button (click)="sendMessage()"></button>
+
 </ion-content>
