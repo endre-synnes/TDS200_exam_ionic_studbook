@@ -57,8 +57,9 @@ export class MessagesProvider {
   public getMessagesObj(sender, bookId){
     return this.getAllMessages()
       .map(arr => {
+        console.log("looking");
         return arr.find( obj => obj.sender === sender && obj.bookId === bookId)
-      });
+      }).toPromise();
 
       //.toPromise().then( (e) => {return e.id}).catch( (e) => {return null})
   }
