@@ -25,6 +25,7 @@ import {BarcodeScanner} from "@ionic-native/barcode-scanner";
 import { IsbnProvider } from '../providers/isbn/isbn';
 import { ProfileProvider } from '../providers/profile/profile';
 import {MessagesPage} from "../pages/messages/messages";
+import { MessagesProvider } from '../providers/messages/messages';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import {MessagesPage} from "../pages/messages/messages";
     BooksProvider,
     BarcodeScanner,
     IsbnProvider,
-    ProfileProvider
+    ProfileProvider,
+    MessagesProvider
   ]
 })
 export class AppModule {}

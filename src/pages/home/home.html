@@ -23,7 +23,7 @@
       <ion-row>
         <ion-col col-6 *ngFor="let book of allBooks | async">
           <ion-card item-left>
-            <img [src]="book.imgUrl" />
+            <img [src]="book.imgUrl" (click)="goToDetails(book)"/>
             <div class="card-title">{{book.title}}</div>
             <div class="card-subtitle">Price: {{book.price}}</div>
           </ion-card>

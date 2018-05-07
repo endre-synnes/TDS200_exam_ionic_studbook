@@ -5,6 +5,7 @@ import {AngularFirestore, AngularFirestoreCollection} from "angularfire2/firesto
 import {Observable} from "rxjs/Observable";
 import {Messages} from "../../models/Messages";
 import {Book} from "../../models/Book";
+import {MessagesProvider} from "../../providers/messages/messages";
 
 @IonicPage()
 @Component({
@@ -21,13 +22,14 @@ export class MessagesPage {
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private booksProvider: BooksProvider,
-              private af: AngularFirestore) {
+              private af: AngularFirestore,
+              private messagesProvider: MessagesProvider) {
     this.email = af.app.auth().currentUser.email;
     this.collection = af.collection<Messages>("messages");
-    this.loadAllMessagesBasedOnBook();
+    this.loadAllMessagesBasedOnEmail();
   }
 
-  public loadAllMessagesBasedOnBook() {
+  public loadAllMessagesBasedOnEmail() {
     this.messages = this.getAllMessages()
       .map(arr => {
         return arr.filter(messages =>

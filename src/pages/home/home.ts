@@ -27,4 +27,8 @@ export class HomePage {
   addBookPage() {
     this.navCtrl.push('AddBookPage');
   }
+
+  goToDetails(book) {
+    this.navCtrl.push('DetailPage', {book});
+  }
 }
