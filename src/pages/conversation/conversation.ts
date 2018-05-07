@@ -28,6 +28,7 @@ export class ConversationPage {
   private price:number;
   private chatInput:string;
   private email:string;
+  private sold:boolean;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -42,7 +43,8 @@ export class ConversationPage {
     this.bookProvider.getBook(this.messages.bookId)
       .then((book:Book) => {
         this.title = book.title;
-        this.price = book.price
+        this.price = book.price;
+        this.sold = book.sold;
       });
 
 
@@ -67,4 +69,7 @@ export class ConversationPage {
     console.log('ionViewDidLoad ConversationPage');
   }
 
+  rowCondition(mess:Message) {
+    return mess.sender === this.email;
+  }
 }

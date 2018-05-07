@@ -21,9 +21,11 @@
 
   <section class="container">
     <ion-list>
-      <ion-item *ngFor="let mess of messages | async">
-        <ion-label (click)="goToConversation(mess)">Sender: {{mess.sender}}</ion-label>
-      </ion-item>
+      <ion-card *ngFor="let mess of messages | async">
+        <ion-card-header (click)="goToConversation(mess)">Book: {{mess.bookTitle}}</ion-card-header>
+        <ion-card-content *ngIf="checkSender(mess)">{{mess.receiver}}</ion-card-content>
+        <ion-card-content *ngIf="!checkSender(mess)">{{mess.sender}}</ion-card-content>
+      </ion-card>
     </ion-list>
   </section>
 

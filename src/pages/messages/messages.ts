@@ -4,6 +4,7 @@ import {BooksProvider} from "../../providers/books/books";
 import {AngularFirestore, AngularFirestoreCollection} from "angularfire2/firestore";
 import {Observable} from "rxjs/Observable";
 import {Messages} from "../../models/Messages";
+import {Book} from "../../models/Book";
 
 @IonicPage()
 @Component({
@@ -30,7 +31,7 @@ export class MessagesPage {
     this.messages = this.getAllMessages()
       .map(arr => {
         return arr.filter(messages =>
-          messages.receiver === this.email)
+          messages.receiver === this.email || messages.sender === this.email)
       });
   }
 
@@ -52,6 +53,9 @@ export class MessagesPage {
     return this.messages;
   }
 
+  checkSender(message:Messages){
+    return message.sender === this.email;
+  }
 
 
   ionViewDidLoad() {

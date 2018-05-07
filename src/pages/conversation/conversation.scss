@@ -4,4 +4,30 @@ page-conversation {
     background: map-get($colors, cosmicLatte) !important;
     border-radius: 3px;
   }
+
+  .conversation-title{
+    background-color: map-get($colors, bone) !important;
+    margin: 0;
+    text-align: center;
+    padding-top: 2%;
+    padding-bottom: 2%;
+  }
+
+
+  .mee{
+    background-color: map-get($colors, lightTaupe) !important;
+    width: 70%;
+    float: right;
+  }
+
+
+  .other{
+    background-color: map-get($colors, bone) !important;
+    width: 70%;
+  }
+
+  button{
+    background: map-get($colors, lightTaupe) !important;
+
+  }
 }

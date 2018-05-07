@@ -1,7 +1,8 @@
 export class Messages {
   constructor(public bookId:string,
-              public sender:number,
+              public bookTitle:string,
+              public sender:string,
               public receiver:string,
-              public id:string){
+              public id?:string){
   }
 }

@@ -1,42 +1,27 @@
-<!--
-  Generated template for the ConversationPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-  <ion-navbar>
+  <ion-navbar color="lightTaupe">
     <ion-title>Conversation</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
 
-  <section>
-    <h2>{{messages.sender}}</h2>
-    <h3>{{title}}</h3>
-    <p>{{price}}</p>
+  <section class="conversation-title">
+    <h1>{{title}}</h1>
+    <h3>Prce: {{price}},- kr</h3>
+    <button ion-button *ngIf="messages.receiver === email" (click)="markAsSold()">Mark As Sold</button>
+    <ion-label *ngIf="sold" style="color: red">Sold</ion-label>
   </section>
 
   <section class="container">
     <ion-list>
-      <ion-card *ngFor="let mess of conversation | async">
-        <ion-card-header [ngClass]="{'me' : (mess.sender == email), 'other':(mess.sender != email)}">Text: {{mess.text}}</ion-card-header>
+      <ion-card *ngFor="let mess of conversation | async"  [ngClass]="rowCondition(mess) ? 'mee' : 'other'">
+        <ion-card-header>Text: {{mess.text}}</ion-card-header>
         <ion-card-content>Sender: {{mess.sender}}</ion-card-content>
       </ion-card>
     </ion-list>
   </section>
-
-
-  <!--<ion-fab bottom right >-->
-    <!--<button ion-fab>Reply</button>-->
-    <!--&lt;!&ndash;<ion-fab-list side="left">&ndash;&gt;-->
-      <!--&lt;!&ndash;<button ion-fab>Reply</button>&ndash;&gt;-->
-    <!--&lt;!&ndash;</ion-fab-list>&ndash;&gt;-->
-  <!--</ion-fab>-->
 
   <ion-footer>
     <ion-item class="input-field">
