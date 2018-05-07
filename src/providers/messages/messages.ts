@@ -53,6 +53,16 @@ export class MessagesProvider {
     return this.messages;
   }
 
+
+  public getMessagesObj(sender, bookId){
+    return this.getAllMessages()
+      .map(arr => {
+        return arr.find( obj => obj.sender === sender && obj.bookId === bookId)
+      });
+
+      //.toPromise().then( (e) => {return e.id}).catch( (e) => {return null})
+  }
+
   public addNewMessagesCollection(messages:Messages){
     return this.collection.add(messages).then(
       function (obj) {

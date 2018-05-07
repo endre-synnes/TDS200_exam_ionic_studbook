@@ -6,6 +6,7 @@ import {MessagesProvider} from "../../providers/messages/messages";
 import {AngularFirestore} from "angularfire2/firestore";
 import {Messages} from "../../models/Messages";
 import {Message} from "../../models/Message";
+import {Observable} from "rxjs/Observable";
 
 /**
  * Generated class for the DetailPage page.
@@ -62,6 +63,11 @@ export class DetailPage {
 
     this.message.sender = this.email;
     this.message.text = this.text;
+
+    this.messagesProvider.getMessagesObj(this.messages.sender, this.messages.bookId)
+      .subscribe( (e) => this.messages = e);
+
+
 
     this.messagesProvider.addNewMessagesCollection(this.messages)
       .then( (e) => {
