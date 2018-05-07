@@ -66,7 +66,7 @@ export class DetailPage {
     this.messagesProvider.addNewMessagesCollection(this.messages)
       .then( (e) => {
         console.log("response: "+e);
-        this.messagesProvider.addMessage(e.toString() , this.message)
+        this.messagesProvider.addMessage(e , this.message)
       }
     );
 

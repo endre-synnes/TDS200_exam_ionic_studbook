@@ -54,13 +54,23 @@ export class MessagesProvider {
   }
 
   public addNewMessagesCollection(messages:Messages){
-    return new Promise(((resolve, reject) => {
-      this.collection.add(messages)
-        .then(function (obj) {
-          return obj.id;
-        })
-        .catch(reject)
-    }))
+    return this.collection.add(messages).then(
+      function (obj) {
+        return obj.id
+      }
+    ).catch(
+      function (error) {
+        return null;
+      }
+    );
+
+    // return new Promise(((resolve, reject) => {
+    //   this.collection.add(messages)
+    //     .then(function (obj) {
+    //       return obj.id;
+    //     })
+    //     .catch(reject)
+    // }))
 
     // return new Promise((resolve, reject) =>{
     //
