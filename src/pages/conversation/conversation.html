@@ -16,7 +16,7 @@
   <section class="container">
     <ion-list>
       <ion-card *ngFor="let mess of conversation | async"  [ngClass]="rowCondition(mess) ? 'mee' : 'other'">
-        <ion-card-content style="size: 1.2em">Text: {{mess.text}}</ion-card-content>
+        <ion-card-content style="size: 1.2em">{{mess.text}}</ion-card-content>
       </ion-card>
     </ion-list>
   </section>
@@ -25,7 +25,7 @@
 
 <ion-footer>
   <ion-item class="input-field">
-    <ion-input type="text" [(ngModel)]="chatInput" placeholder="Enter message"></ion-input>
+    <ion-input type="text" placeholder="Enter message">{{chatInput}}</ion-input>
     <ion-icon name="md-send" (click)="send(chatInput)" item-right></ion-icon>
   </ion-item>
 </ion-footer>
