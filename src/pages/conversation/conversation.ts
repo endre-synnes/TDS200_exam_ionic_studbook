@@ -20,8 +20,8 @@ export class ConversationPage {
   private conversation:Observable<Message[]>;
   private title:string;
   private price:number;
-  private chatInput:string;
-  private email:string;
+  private chatInput:string = "";
+  private email:string = "";
   private sold:boolean;
   private id:string;
 
@@ -54,5 +54,16 @@ export class ConversationPage {
 
   rowCondition(mess:Message) {
     return mess.sender === this.email;
+  }
+
+  send(){
+    console.log("send clicked");
+    this.messagesProvider.addMessage(this.messages.id, {
+      sender: this.email,
+      text: this.chatInput,
+      time: new Date()
+    } as Message).then( () =>
+      this.chatInput = ""
+    )
   }
 }

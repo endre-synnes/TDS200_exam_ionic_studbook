@@ -3,6 +3,7 @@ export class Messages {
               public bookTitle:string,
               public sender:string,
               public receiver:string,
+              public time?:any,
               public id?:string){
   }
 }

@@ -1,5 +1,10 @@
 page-conversation {
 
+  ion-content {
+    background: url("../../assets/imgs/book-background.jpg") no-repeat center center fixed;
+    background-size: cover;
+  }
+
   .input-field {
     background: map-get($colors, cosmicLatte) !important;
     border-radius: 3px;
@@ -7,23 +12,28 @@ page-conversation {
 
   .conversation-title{
     background-color: map-get($colors, bone) !important;
-    margin: 0;
     text-align: center;
     padding-top: 2%;
     padding-bottom: 2%;
+    margin-bottom: 2%;
   }
 
 
   .mee{
     background-color: map-get($colors, lightTaupe) !important;
-    width: 70%;
+    width: 60%;
     float: right;
+    margin-right: 0;
   }
 
 
   .other{
     background-color: map-get($colors, bone) !important;
-    width: 70%;
+    width: 60%;
+    margin-left: 0;
+    border-top-right-radius: .4em;
+    border-bottom-left-radius: .4em;
+    border-bottom-right-radius: .4em;
   }
 
   button{

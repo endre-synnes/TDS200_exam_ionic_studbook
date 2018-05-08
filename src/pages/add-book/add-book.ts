@@ -68,6 +68,7 @@ export class AddBookPage {
       loading.present();
 
       this.book.seller = this.getCurrentUser();
+      this.book.time = new Date();
 
       let imgFileName = `${this.book.seller}_${new Date().getTime()}.png`;
       console.log(imgFileName);

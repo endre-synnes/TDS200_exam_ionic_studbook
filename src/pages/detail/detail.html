@@ -6,8 +6,8 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>detail</ion-title>
+  <ion-navbar color="lightTaupe">
+    <ion-title>{{book.title}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,11 +15,23 @@
 
 <ion-content padding>
 
-  <section>
-    <ion-label fixed>Text</ion-label>
-    <ion-input class="txt-input-field" type="text" [(ngModel)]="text"></ion-input>
+  <section class="details-content">
+    <img class="details-img" [src]="book.imgUrl"/>
+    <h3>{{book.title}}</h3>
+    <h4>Price: {{book.price}},- kr</h4>
+    <p>Seller: {{book.seller}}</p>
+    <p>Author: {{book.author}}</p>
+    <p>ISBN: {{book.isbn}}</p>
+    <p>Location: {{book.city}}</p>
   </section>
 
-  <button ion-button (click)="sendMessage()"></button>
 
 </ion-content>
+
+
+<ion-footer>
+  <ion-item class="input-field">
+    <ion-input type="text" [(ngModel)]="text" placeholder="Start conversation with seller"></ion-input>
+    <ion-icon name="md-send" (click)="sendMessage()" item-right></ion-icon>
+  </ion-item>
+</ion-footer>

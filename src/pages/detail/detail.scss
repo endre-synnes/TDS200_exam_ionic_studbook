@@ -1,3 +1,28 @@
 page-detail {
 
+  ion-content {
+    background: url("../../assets/imgs/book-background.jpg") no-repeat center center fixed;
+    background-size: cover;
+  }
+
+  .input-field {
+    background: map-get($colors, cosmicLatte) !important;
+    border-radius: 3px;
+  }
+
+  .details-content{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: map-get($colors, mediumRed) !important;
+    background: map-get($colors, cosmicLatte) !important;
+    border-radius: 3px;
+  }
+
+  .details-img{
+    height: 40%;
+  }
 }

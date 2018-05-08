@@ -13,7 +13,7 @@ export class MessagesProvider {
   private collection : AngularFirestoreCollection<Messages>;
 
   constructor(public http: HttpClient, private af:AngularFirestore) {
-    this.collection = af.collection<Messages>("messages");
+    this.collection = af.collection<Messages>("messages", ref => ref.orderBy('time', 'desc'));
     }
 
 
@@ -120,7 +120,7 @@ export class MessagesProvider {
   public getConversations(id:string){
     return this.collection
       .doc(id)
-      .collection('conversations')
+      .collection('conversations', ref => ref.orderBy('time', 'asc'))
       .snapshotChanges().map(actions => {
         return actions.map(action => {
           let data = action.payload.doc.data() as Message;
