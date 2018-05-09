@@ -120,7 +120,8 @@ export class AddBookPage {
         if (this.platform.is('ios'))
           this.previewImage = normalizeURL(imageData);
         else
-          this.previewImage = "data:image/jpeg;base64," + imageData;
+          this.previewImage =  imageData;
+        //this.previewImage = "data:image/jpeg;base64," + imageData;
       }, (err) => {
       });
   }

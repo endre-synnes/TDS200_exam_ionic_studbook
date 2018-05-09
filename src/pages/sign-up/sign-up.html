@@ -1,6 +1,6 @@
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="lightTaupe">
     <ion-title>sign-up</ion-title>
   </ion-navbar>
 
@@ -9,26 +9,36 @@
 
 <ion-content padding>
 
-  <section>
-    <ion-label fixed>Email</ion-label>
-    <ion-input class="txt-input-field" type="text" [(ngModel)]="profile.email"></ion-input>
-  </section>
-  <section>
-    <ion-label fixed>First Name</ion-label>
-    <ion-input class="txt-input-field" type="text" [(ngModel)]="profile.firstName"></ion-input>
-  </section>
-  <section>
-    <ion-label fixed>Last Name</ion-label>
-    <ion-input class="txt-input-field" type="text" [(ngModel)]="profile.lastName"></ion-input>
+  <section class="container">
+
+    <section>
+      <ion-label fixed>Email</ion-label>
+      <ion-input class="txt-input-field" type="text" [(ngModel)]="profile.email"></ion-input>
+    </section>
+    <section>
+      <ion-label fixed>First Name</ion-label>
+      <ion-input class="txt-input-field" type="text" [(ngModel)]="profile.firstName"></ion-input>
+    </section>
+    <section>
+      <ion-label fixed>Last Name</ion-label>
+      <ion-input class="txt-input-field" type="text" [(ngModel)]="profile.lastName"></ion-input>
+    </section>
+
+    <section>
+      <ion-label fixed>Password</ion-label>
+      <ion-input class="txt-input-field" type="password" [(ngModel)]="password"></ion-input>
+    </section>
+
+    <ion-card>
+      <img *ngIf="previewImage.length > 0" [src]="'data:image/jpg;base64,' + previewImage">
+    </ion-card>
+
+    <section class="sign-up-buttons">
+      <button block ion-button (click)="register()">Register</button>
+      <button block ion-button (click)="presentPictureChoices()">Add Profile picture</button>
+    </section>
+
   </section>
 
-  <section>
-    <ion-label fixed>Password</ion-label>
-    <ion-input class="txt-input-field" type="password" [(ngModel)]="password"></ion-input>
-  </section>
-
-  <section>
-    <button block ion-button (click)="register()">Register</button>
-  </section>
 
 </ion-content>
