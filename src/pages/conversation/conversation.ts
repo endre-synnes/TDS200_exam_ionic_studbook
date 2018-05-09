@@ -70,4 +70,15 @@ export class ConversationPage {
       )
     }
   }
+
+
+  convertTime(date:Date){
+    let time:string = date.getDate() + " "
+      + date.getUTCMonth() + " "
+      + date.getFullYear() + " at "
+      + date.getHours() + ":"
+      + date.getMinutes() + ":"
+      + date.getSeconds();
+    return time;
+  }
 }

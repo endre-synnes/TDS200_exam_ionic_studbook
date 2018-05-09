@@ -15,9 +15,13 @@
 
   <section class="container">
     <ion-list>
-      <ion-card *ngFor="let mess of conversation | async"  [ngClass]="rowCondition(mess) ? 'mee' : 'other'">
-        <ion-card-content style="size: 1.2em">{{mess.text}}</ion-card-content>
-      </ion-card>
+      <div *ngFor="let mess of conversation | async">
+        <div [ngClass]="rowCondition(mess) ? 'time-mee' : 'time-other'">{{mess.time|date:'d, MMM, y, H:mm:ss'}}</div>
+        <ion-card [ngClass]="rowCondition(mess) ? 'mee' : 'other'">
+          <ion-card-content style="size: 1.2em">{{mess.text}}</ion-card-content>
+        </ion-card>
+      </div>
+
     </ion-list>
   </section>
 
