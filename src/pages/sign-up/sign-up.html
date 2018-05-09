@@ -29,8 +29,9 @@
       <ion-input class="txt-input-field" type="password" [(ngModel)]="password"></ion-input>
     </section>
 
-    <ion-card>
+    <ion-card class="profile-picture">
       <img *ngIf="previewImage.length > 0" [src]="'data:image/jpg;base64,' + previewImage">
+      <!--<img [src]="'https://firebasestorage.googleapis.com/v0/b/tds200-exam.appspot.com/o/TesterTeater%40test.com_1525894454466.png?alt=media&token=67854e41-8d4b-4379-b99a-6a2a06dfc5f1'">-->
     </ion-card>
 
     <section class="sign-up-buttons">

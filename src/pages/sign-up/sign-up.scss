@@ -31,6 +31,12 @@ page-sign-up {
   }
 
 
+  .profile-picture{
+    width: 35%;
+    border-radius: 50%;
+  }
+
+
   button{
     background: map-get($colors, lightTaupe) !important;
 

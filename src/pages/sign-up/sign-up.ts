@@ -105,7 +105,10 @@ export class SignUpPage {
       encodingType: this.camera.EncodingType.JPEG,
       correctOrientation: true,
       mediaType: this.camera.MediaType.PICTURE,
-      sourceType: sourceType
+      sourceType: sourceType,
+      targetWidth:500,
+      targetHeight:500,
+      allowEdit:true
     };
 
     this.camera.getPicture(options)
