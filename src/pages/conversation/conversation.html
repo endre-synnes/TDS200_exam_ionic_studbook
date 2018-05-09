@@ -7,11 +7,11 @@
 
 <ion-content padding>
 
-  <section class="conversation-title">
-    <h1>{{title}}</h1>
-    <h3>Price: {{price}},- kr</h3>
-    <h4 *ngIf="sold" style="color: red; size: 1.5em">Sold</h4>
-  </section>
+  <ion-card class="conversation-title">
+    <ion-card-title style="font-size: x-large">{{title}}</ion-card-title>
+    <ion-card-header>Price: {{price}},- kr</ion-card-header>
+    <ion-card-header *ngIf="sold" style="color: red; size: 1.5em">Sold</ion-card-header>
+  </ion-card>
 
   <section class="container">
     <ion-list>

@@ -15,15 +15,15 @@
 
 <ion-content padding>
 
-  <section class="details-content">
+  <ion-card class="details-content">
     <img class="details-img" [src]="book.imgUrl"/>
-    <h3>{{book.title}}</h3>
-    <h4>Price: {{book.price}},- kr</h4>
-    <p>Seller: {{book.seller}}</p>
-    <p>Author: {{book.author}}</p>
-    <p>ISBN: {{book.isbn}}</p>
-    <p>Location: {{book.city}}</p>
-  </section>
+    <ion-card-title>{{book.title}}</ion-card-title>
+    <ion-card-header>Price: {{book.price}},- kr</ion-card-header>
+    <ion-card-content>Seller: {{book.seller}}</ion-card-content>
+    <ion-card-content>Author: {{book.author}}</ion-card-content>
+    <ion-card-content>ISBN: {{book.isbn}}</ion-card-content>
+    <ion-card-content>Location: {{book.city}}</ion-card-content>
+  </ion-card>
 
 
 </ion-content>

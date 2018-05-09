@@ -11,9 +11,7 @@ page-sign-up {
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    //margin: 0% 10% 0% 0%;
   }
 
 
@@ -33,12 +31,15 @@ page-sign-up {
 
   .profile-picture{
     width: 35%;
-    border-radius: 50%;
+    border-radius: 40%;
+  }
+
+  .register-btn{
+    margin-top: 15%;
   }
 
 
   button{
     background: map-get($colors, lightTaupe) !important;
-
   }
 }
