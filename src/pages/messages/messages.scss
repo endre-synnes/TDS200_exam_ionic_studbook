@@ -4,4 +4,9 @@ page-messages {
     background: url("../../assets/imgs/book-background.jpg") no-repeat center center fixed;
     background-size: cover;
   }
+
+
+  .messages-cards{
+    background-color: map-get($colors, cosmicLatte) !important;
+  }
 }

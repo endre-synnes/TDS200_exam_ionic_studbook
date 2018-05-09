@@ -23,7 +23,7 @@
 
   <section class="container">
     <ion-list>
-      <ion-card *ngFor="let book of booksForSale | async">
+      <ion-card class="my-books-cards" *ngFor="let book of booksForSale | async">
         <ion-card-header>Title: {{book.title}}</ion-card-header>
         <ion-grid>
           <ion-row>

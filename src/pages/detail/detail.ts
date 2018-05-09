@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
 import {BooksProvider} from "../../providers/books/books";
 import {Book} from "../../models/Book";
 import {MessagesProvider} from "../../providers/messages/messages";
@@ -42,7 +42,8 @@ export class DetailPage {
               public navParams: NavParams,
               private bookProvider: BooksProvider,
               private messagesProvider: MessagesProvider,
-              private af:AngularFirestore) {
+              private af:AngularFirestore,
+              private toastController: ToastController) {
     this.book = navParams.get('book');
 
     this.email = af.app.auth().currentUser.email;
@@ -82,11 +83,24 @@ export class DetailPage {
         this.messagesProvider.addNewMessagesCollection(this.messages)
           .then((e) => {
               console.log("response: " + e);
-              this.messagesProvider.addMessage(e, this.message)
+              this.messagesProvider.addMessage(e, this.message).then(
+                () => this.presentToast()
+              )
             }
           );
 
       }
+    }
+
+
+    private presentToast(){
+      let toast = this.toastController.create({
+        message: 'Message sent, \n see Messages for conversation.',
+        duration: 4000,
+        position: 'middle'
+      });
+
+      toast.present();
     }
 
 }

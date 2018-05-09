@@ -17,7 +17,7 @@
 
   <section class="container">
     <ion-list>
-      <ion-card *ngFor="let mess of messages | async">
+      <ion-card class="messages-cards" *ngFor="let mess of messages | async">
         <ion-card-header (click)="goToConversation(mess)">Book: {{mess.bookTitle}}</ion-card-header>
         <ion-card-content *ngIf="checkSender(mess)">{{mess.receiver}}</ion-card-content>
         <ion-card-content *ngIf="!checkSender(mess)">{{mess.sender}}</ion-card-content>

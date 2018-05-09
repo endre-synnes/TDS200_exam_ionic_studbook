@@ -13,4 +13,9 @@ page-my-books {
 
   }
 
+
+  .my-books-cards{
+    background-color: map-get($colors, cosmicLatte) !important;
+  }
+
 }
