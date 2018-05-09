@@ -4,21 +4,16 @@ import {AngularFirestore, AngularFirestoreCollection} from "angularfire2/firesto
 import {Profile} from "../../models/Profile";
 import {Observable} from "rxjs/Observable";
 
-/*
-  Generated class for the ProfileProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class ProfileProvider {
 
   private collection : AngularFirestoreCollection<Profile>;
   private profiles : Observable<Profile[]>;
+  private filteredProfiles: Observable<Profile[]>;
 
 
   constructor(public http: HttpClient, private af: AngularFirestore) {
-    console.log('Hello ProfileProvider Provider');
     this.collection = af.collection<Profile>("profiles");
 
   }
@@ -48,7 +43,19 @@ export class ProfileProvider {
         });
       });
 
+    this.profiles.forEach(console.log);
+
     return this.profiles;
+  }
+
+
+  getProfile(email:string){
+    console.log("email:"+email);
+    this.filteredProfiles = this.getProfiles().map(arr => arr.filter(
+      obj => obj.email === email
+    ));
+
+    return this.filteredProfiles;
   }
 
 }

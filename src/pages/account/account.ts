@@ -15,9 +15,12 @@ import {ProfileProvider} from "../../providers/profile/profile";
 export class AccountPage {
 
   private mySoldBooks : Observable<Book[]>;
-  private allProfiles : Observable<Profile[]>;
   private email: string;
-  private profile: Profile;
+  private profiles: Observable<Profile[]>;
+  private firstName: string = "";
+  private lastName: string = "";
+  private imgUrl: string = "";
+  private id:string;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -27,10 +30,28 @@ export class AccountPage {
 
     this.email = this.af.app.auth().currentUser.email;
 
-    this.allProfiles = profilePovider.getProfiles();
-    this.allProfiles.forEach( console.log);
+
+
+    this.loadProfile();
+    // this.profiles.map(arr => {
+    //   arr.map( e => {
+    //     console.log("first name: "+e.firstName);
+    //     this.firstName = e.email;
+    //     this.lastName = e.lastName;
+    //   })
+    // });
 
     this.loadBooks()
+  }
+
+  loadProfile(){
+    this.profiles = this.profilePovider.getProfile(this.email);
+
+    this.profiles.forEach( e => e.forEach(profile => {
+      this.firstName = profile.firstName;
+      this.lastName = profile.lastName;
+      this.id = profile.id;
+    }));
   }
 
 
@@ -42,8 +63,5 @@ export class AccountPage {
       ));
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AccountPage');
-  }
 
 }

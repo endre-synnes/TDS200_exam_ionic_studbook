@@ -9,13 +9,12 @@
 
 <ion-content padding class="container">
 
-  <section class="user-content">
+  <ion-card class="user-content">
     <ion-icon name="contact"></ion-icon>
-    <p>{{email}}</p>
-    <!--<p>{{profile.firstName}}</p>-->
-    <!--<p>{{profile.lastName}}</p>-->
+    <ion-card-title>{{email}}</ion-card-title>
+    <ion-card-content>{{firstName}} {{lastName}}</ion-card-content>
 
-  </section>
+  </ion-card>
 
   <section class="books">
     <h2 class="books-title">Sold books</h2>
