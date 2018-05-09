@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Messages} from "../../models/Messages";
 import {Observable} from "rxjs/Observable";
 import {Message} from "../../models/Message";
-import {AngularFirestore, AngularFirestoreCollection} from "angularfire2/firestore";
+import {AngularFirestore} from "angularfire2/firestore";
 import {BooksProvider} from "../../providers/books/books";
 import {Book} from "../../models/Book";
 import {MessagesProvider} from "../../providers/messages/messages";
@@ -56,14 +56,18 @@ export class ConversationPage {
     return mess.sender === this.email;
   }
 
-  send(){
-    console.log("send clicked");
-    this.messagesProvider.addMessage(this.messages.id, {
-      sender: this.email,
-      text: this.chatInput,
-      time: new Date()
-    } as Message).then( () =>
-      this.chatInput = ""
-    )
+  send() {
+    if (this.chatInput.length > 0) {
+      let text = this.chatInput;
+      this.chatInput = "";
+      console.log("send clicked");
+      this.messagesProvider.addMessage(this.messages.id, {
+        sender: this.email,
+        text: text,
+        time: new Date()
+      } as Message).then(() =>
+        this.chatInput = ""
+      )
+    }
   }
 }

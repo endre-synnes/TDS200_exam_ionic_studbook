@@ -29,9 +29,15 @@
 </ion-content>
 
 
-<ion-footer>
-  <ion-item class="input-field">
-    <ion-input type="text" [(ngModel)]="text" placeholder="Start conversation with seller"></ion-input>
-    <ion-icon name="md-send" (click)="sendMessage()" item-right></ion-icon>
-  </ion-item>
+<ion-footer class="input-field">
+  <ion-grid>
+    <ion-row>
+      <ion-col col-10>
+        <ion-input type="text" [(ngModel)]="text" placeholder="Start conversation with seller..."></ion-input>
+      </ion-col>
+      <ion-col col-2>
+        <ion-icon name="md-send" style="font-size: xx-large; margin:auto" (click)="sendMessage()" item-right></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-footer>

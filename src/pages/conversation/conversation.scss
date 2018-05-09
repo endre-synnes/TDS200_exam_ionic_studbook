@@ -5,9 +5,8 @@ page-conversation {
     background-size: cover;
   }
 
-  .input-field {
+  .conversation-input-field {
     background: map-get($colors, cosmicLatte) !important;
-    border-radius: 3px;
   }
 
   .conversation-title{
