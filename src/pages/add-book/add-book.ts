@@ -43,7 +43,7 @@ export class AddBookPage {
   private uploadBase64: string = "";
 
   private categories: Observable<Category[]>;
-  private category:string = "N/A";
+  private category:string = "Other";
 
 
   constructor(public navCtrl: NavController,

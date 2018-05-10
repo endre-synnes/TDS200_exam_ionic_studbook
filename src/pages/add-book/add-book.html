@@ -44,15 +44,10 @@
     </ion-row>
     <ion-row>
       <ion-col>
-        <ion-label>Select category:</ion-label>
-      </ion-col>
-      <ion-col col-8>
         <ion-item>
-          <ion-label>Gender</ion-label>
-          <ion-select [(ngModel)]="category" interface="popover">
+          <ion-label>Select category:</ion-label>
+          <ion-select class="category-selection" [(ngModel)]="category" interface="popover">
             <ion-option *ngFor="let ct of categories | async" [value]="ct.category">{{ct.category}}</ion-option>
-            <!--<ion-option value="f">Female</ion-option>-->
-            <!--<ion-option value="m">Male</ion-option>-->
           </ion-select>
         </ion-item>
       </ion-col>
@@ -70,7 +65,7 @@
 
 
   <section>
-    <button block ion-button (click)="addBook()">Add book for sale!</button>
+    <button class="submit-button" block ion-button (click)="addBook()">Add book for sale!</button>
   </section>
 
 

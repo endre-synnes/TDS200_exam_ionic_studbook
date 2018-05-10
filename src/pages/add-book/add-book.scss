@@ -13,13 +13,19 @@ page-add-book {
     padding: 2px;
   }
 
-
-  button{
-    background: map-get($colors, lightTaupe) !important;
-
+  .category-selection{
+    background: white;
+    width: 30%;
+    height: 30px;
+    color: white;
   }
 
   .action-button{
     width: 48%;
+    background: map-get($colors, lightTaupe) !important;
+  }
+
+  .submit-button{
+    background: map-get($colors, lightTaupe) !important;
   }
 }
