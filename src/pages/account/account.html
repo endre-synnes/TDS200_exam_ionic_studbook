@@ -29,5 +29,9 @@
     </ion-list>
   </section>
 
+  <ion-card *ngIf="(mySoldBooks | async)?.length==0">
+    <ion-card-header>You have no Books for sale.</ion-card-header>
+  </ion-card>
+
 
 </ion-content>

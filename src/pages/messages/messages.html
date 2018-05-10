@@ -25,4 +25,8 @@
     </ion-list>
   </section>
 
+  <ion-card *ngIf="(messages | async)?.length==0">
+    <ion-card-header>You have no messages.</ion-card-header>
+  </ion-card>
+
 </ion-content>

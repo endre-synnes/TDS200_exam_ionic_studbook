@@ -191,7 +191,7 @@ export class AddBookPage {
       console.log('Barcode data', barcodeData.text);
 
       let loading = this.loadingCtrl.create({
-        content : "Looking for book information",
+         content : "Looking for book information",
       });
       loading.present();
 

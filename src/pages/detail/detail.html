@@ -17,12 +17,12 @@
 
   <ion-card class="details-content">
     <img class="details-img" [src]="book.imgUrl"/>
-    <ion-card-title>{{book.title}}</ion-card-title>
-    <ion-card-header>Price: {{book.price}},- kr</ion-card-header>
-    <ion-card-content>Seller: {{book.seller}}</ion-card-content>
-    <ion-card-content>Author: {{book.author}}</ion-card-content>
-    <ion-card-content>ISBN: {{book.isbn}}</ion-card-content>
-    <ion-card-content>Location: {{book.city}}</ion-card-content>
+    <ion-card-title class="content-title">{{book.title}}</ion-card-title>
+    <ion-card-header class="content-view">Price: {{book.price}},- kr</ion-card-header>
+    <ion-card-content class="content-view">Seller: {{book.seller}}</ion-card-content>
+    <ion-card-content class="content-view">Author: {{book.author}}</ion-card-content>
+    <ion-card-content class="content-view">ISBN: {{book.isbn}}</ion-card-content>
+    <ion-card-content class="content-view">Location: {{book.city}}</ion-card-content>
   </ion-card>
 
 
