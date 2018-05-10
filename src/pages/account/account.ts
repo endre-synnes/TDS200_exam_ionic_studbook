@@ -20,7 +20,7 @@ export class AccountPage {
   private firstName: string = "";
   private lastName: string = "";
   private imgUrl: string = "";
-  private id:string;
+  private id:string = "";
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -51,7 +51,11 @@ export class AccountPage {
       this.firstName = profile.firstName;
       this.lastName = profile.lastName;
       this.id = profile.id;
+      this.imgUrl = profile.imgUrl
+
     }));
+
+
   }
 
 

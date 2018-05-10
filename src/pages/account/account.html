@@ -10,7 +10,10 @@
 <ion-content padding class="container">
 
   <ion-card class="user-content">
-    <ion-icon name="contact"></ion-icon>
+    <ion-icon *ngIf="imgUrl === undefined" name="contact"></ion-icon>
+    <!--<ion-icon *ngIf="(imgUrl)?.length==0" name="contact"></ion-icon>-->
+    <img *ngIf="(imgUrl)?.length > 0" [src]="imgUrl" class="profile-img"/>
+
     <ion-card-title>{{email}}</ion-card-title>
     <ion-card-content>{{firstName}} {{lastName}}</ion-card-content>
 
@@ -19,7 +22,7 @@
   <section class="books">
     <h2 class="books-title">Sold books</h2>
     <ion-list>
-      <ion-item *ngFor="let book of mySoldBooks | async">
+      <ion-item class="book-items" *ngFor="let book of mySoldBooks | async">
         <ion-label>Title: {{book.title}}</ion-label>
         <ion-label col-4>Price: {{book.price}}</ion-label>
       </ion-item>

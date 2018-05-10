@@ -1,5 +1,11 @@
 page-account {
 
+  ion-content {
+    background: url("../../assets/imgs/book-background.jpg") no-repeat center center fixed;
+    //background-color: map-get($colors, cosmicLatte) !important;
+
+    background-size: cover;
+  }
 
   .container{
     height: 100%;
@@ -22,6 +28,8 @@ page-account {
     align-items: center;
     margin-bottom: 10%;
     margin-top: 5%;
+    background-color: map-get($colors, cosmicLatte) !important;
+
   }
 
   .books-title{
@@ -30,5 +38,19 @@ page-account {
 
   .books{
     margin-top: 25%;
+  }
+
+  .book-items{
+    background-color: map-get($colors, cosmicLatte) !important;
+
+  }
+
+
+  .profile-img{
+    margin-top: 5%;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+
   }
 }
