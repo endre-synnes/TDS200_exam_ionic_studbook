@@ -17,6 +17,9 @@ import {BooksProvider} from "../../providers/books/books";
 import {Geolocation} from "@ionic-native/geolocation";
 import {BarcodeScanner} from "@ionic-native/barcode-scanner";
 import {IsbnProvider} from "../../providers/isbn/isbn";
+import {CategoryProvider} from "../../providers/category/category";
+import {Observable} from "rxjs/Observable";
+import {Category} from "../../models/Category";
 
 
 @IonicPage()
@@ -39,6 +42,9 @@ export class AddBookPage {
   private previewImage: string = "";
   private uploadBase64: string = "";
 
+  private categories: Observable<Category[]>;
+  private category:string = "N/A";
+
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -53,8 +59,11 @@ export class AddBookPage {
               private loadingCtrl: LoadingController,
               private barcodeScanner: BarcodeScanner,
               private isbnProvider: IsbnProvider,
-              private alertCtrl: AlertController
+              private alertCtrl: AlertController,
+              private categoryProvider: CategoryProvider
               ) {
+
+    this.categories = this.categoryProvider.getAllCategories();
 
   }
 
@@ -67,6 +76,7 @@ export class AddBookPage {
       });
       loading.present();
 
+      this.book.category = this.category;
       this.book.seller = this.getCurrentUser();
       this.book.time = new Date();
 

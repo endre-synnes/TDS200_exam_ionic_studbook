@@ -8,6 +8,7 @@ export class Book {
               public city:string,
               public id?:string,
               public isbn?:string,
-              public time?:any){
+              public time?:any,
+              public category?:string){
   }
 }

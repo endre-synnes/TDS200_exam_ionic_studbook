@@ -26,6 +26,7 @@ import { IsbnProvider } from '../providers/isbn/isbn';
 import { ProfileProvider } from '../providers/profile/profile';
 import {MessagesPage} from "../pages/messages/messages";
 import { MessagesProvider } from '../providers/messages/messages';
+import { CategoryProvider } from '../providers/category/category';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { MessagesProvider } from '../providers/messages/messages';
     BarcodeScanner,
     IsbnProvider,
     ProfileProvider,
-    MessagesProvider
+    MessagesProvider,
+    CategoryProvider
   ]
 })
 export class AppModule {}
