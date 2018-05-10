@@ -40,4 +40,9 @@ export class MessagesPage {
   goToConversation(messages: Messages) {
     this.navCtrl.push('ConversationPage', {messages});
   }
+
+
+  logOut(){
+    this.af.app.auth().signOut();
+  }
 }

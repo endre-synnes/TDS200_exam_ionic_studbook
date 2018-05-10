@@ -14,22 +14,6 @@ page-home {
     opacity: 1;
   }
 
-  //@mixin home-img($width) {
-  //  width: $width;
-  //
-  //}
-  //
-  //.book-view{
-  //  display: flex;
-  //  flex-direction: row;
-  //  flex-wrap: wrap;
-  //  justify-content: flex-start;
-  //  align-content: stretch;
-  //
-  //  ion-card{
-  //    @include home-img(50% !important);
-  //  }
-  //}
 
   ion-card {
     position: relative;
@@ -40,19 +24,8 @@ page-home {
   }
 
   .card-title {
-    position: absolute;
-    top: 30%;
-    font-size: 1.2em;
-    width: 100%;
-    font-weight: bold;
-    color: #fff;
-  }
-
-  .card-subtitle {
-    font-size: 1.0em;
-    position: absolute;
-    bottom: 5%;
-    width: 100%;
-    color: #fff;
+    white-space: normal;
+    padding-bottom: 6px;
+    padding-top: 6px;
   }
 }
