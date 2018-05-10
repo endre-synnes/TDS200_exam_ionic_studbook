@@ -190,6 +190,11 @@ export class AddBookPage {
     this.barcodeScanner.scan().then( barcodeData => {
       console.log('Barcode data', barcodeData.text);
 
+      let loading = this.loadingCtrl.create({
+        content : "Looking for book information",
+      });
+      loading.present();
+
       this.isbnProvider.getBookInformation(barcodeData.text)
         .then( (json: any) => {
           if (json.length === 0){
@@ -199,7 +204,10 @@ export class AddBookPage {
             this.book.title = json.items[0].volumeInfo.title;
             this.book.author = json.items[0].volumeInfo.authors[0];
           }
-        }).catch(() => {
+          loading.dismissAll();
+        })
+        .catch(() => {
+          loading.dismissAll();
           let alert = this.alertCtrl.create({
             title: "Not Found",
             subTitle: "This book is not in our database",
