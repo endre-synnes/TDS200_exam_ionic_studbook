@@ -4,6 +4,8 @@ import {AngularFirestore} from "angularfire2/firestore";
 import {Book} from "../../models/Book";
 import {Observable} from "rxjs/Observable";
 import {BooksProvider} from "../../providers/books/books";
+import {CategoryProvider} from "../../providers/category/category";
+import {Category} from "../../models/Category";
 
 @Component({
   selector: 'page-home',
@@ -12,12 +14,17 @@ import {BooksProvider} from "../../providers/books/books";
 export class HomePage {
 
   public allBooks : Observable<Book[]>;
+  private categories: Observable<Category[]>;
+  private selectedCategory: string = "";
 
   constructor(public navCtrl: NavController,
               private af:AngularFirestore,
-              private booksProvider:BooksProvider) {
+              private booksProvider:BooksProvider,
+              private ctgProvider: CategoryProvider) {
 
     this.allBooks = this.booksProvider.getAllBooksForSale();
+
+    this.categories = this.ctgProvider.getAllCategories();
   }
 
   logOut() {
@@ -30,5 +37,14 @@ export class HomePage {
 
   goToDetails(book) {
     this.navCtrl.push('DetailPage', {book});
+  }
+
+
+  filterByCategory(){
+    this.allBooks = this.booksProvider.getBooksByCategory(this.selectedCategory);
+  }
+
+  resetFilter(){
+    this.allBooks = this.booksProvider.getAllBooks();
   }
 }

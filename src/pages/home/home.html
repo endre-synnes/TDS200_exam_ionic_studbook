@@ -18,6 +18,16 @@
 
 <ion-content padding>
 
+  <ion-item>
+    <ion-label>Select category:</ion-label>
+    <ion-select [(ngModel)]="selectedCategory" (ionChange)="filterByCategory()" interface="popover">
+      <ion-option *ngFor="let ct of categories | async" [value]="ct.category">{{ct.category}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <button block ion-button class="reset-filter" (click)="resetFilter()">Reset filter</button>
+
+
+
   <section class="container">
     <ion-list class="book-view">
       <ion-row>
@@ -31,6 +41,9 @@
       </ion-row>
     </ion-list>
 
+    <ion-card *ngIf="(allBooks | async)?.length==0">
+      <ion-card-header>No books in this category found.</ion-card-header>
+    </ion-card>
 
   </section>
 

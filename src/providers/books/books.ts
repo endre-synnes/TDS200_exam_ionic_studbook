@@ -50,6 +50,15 @@ export class BooksProvider {
   }
 
 
+  getBooksByCategory(category:string){
+    return this.getAllBooks().map(
+      arr => arr.filter(
+        book => book.category === category
+      )
+    );
+  }
+
+
   addBook(book: Book){
     return new Promise((resolve, reject) =>{
       this.collection.add(book)
