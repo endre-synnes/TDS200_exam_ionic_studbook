@@ -68,7 +68,10 @@ export class SignUpPage {
         console.log(result);
       } catch (e) {
         console.log(e);
+        this.presentToast("Email already in use or invalid password");
       }
+    }else {
+      this.presentToast("Fill in both email and password");
     }
   }
 
@@ -146,7 +149,7 @@ export class SignUpPage {
   private presentToast(message:string){
     let toast = this.toastController.create({
       message: message,
-      duration: 4000,
+      duration: 3000,
       position: 'middle'
     });
 
