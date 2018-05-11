@@ -48,10 +48,7 @@ export class ConversationPage {
 
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ConversationPage');
-  }
-
+  //Checking if message is from you or the other person in this chat
   rowCondition(mess:Message) {
     return mess.sender === this.email;
   }
@@ -71,7 +68,7 @@ export class ConversationPage {
     }
   }
 
-
+  //Converting Date object (not used anymore)
   convertTime(date:Date){
     let time:string = date.getDate() + " "
       + date.getUTCMonth() + " "

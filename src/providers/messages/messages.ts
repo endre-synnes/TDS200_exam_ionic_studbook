@@ -25,17 +25,6 @@ export class MessagesProvider {
       });
     }
 
-  public checkIfConversationExists(messages:Messages){
-    const usersRef = this.collection.doc(messages.id);
-
-    return usersRef.ref.get()
-      .then((docSnapshot) => {
-        if (docSnapshot.exists) {
-          return true
-        }
-      });
-
-  }
 
   private getAllMessages(){
     this.messages = this.collection.snapshotChanges()
@@ -61,6 +50,7 @@ export class MessagesProvider {
         return arr.find( obj => obj.sender === sender && obj.bookId === bookId)
       }).toPromise();
     }
+
 
   public addNewMessagesCollection(messages:Messages){
     return this.collection.add(messages).then(

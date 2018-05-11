@@ -34,8 +34,11 @@ export class AccountPage {
   }
 
   loadProfile(){
+
+    //Get profile with same email as logged in user
     this.profiles = this.profilePovider.getProfile(this.email);
 
+    //Retrieving infromation from profile
     this.profiles.forEach( e => e.forEach(profile => {
       this.firstName = profile.firstName;
       this.lastName = profile.lastName;
@@ -46,6 +49,7 @@ export class AccountPage {
 
 
   loadBooks(){
+    //All Books that the user has marked as Sold
     this.mySoldBooks = this.booksProvider
       .getYourBooks(this.email)
       .map(array => array.filter(

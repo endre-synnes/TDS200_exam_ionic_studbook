@@ -68,6 +68,7 @@ export class AddBookPage {
   }
 
 
+  //Uploading book
   addBook(){
     if (this.uploadBase64 !== "") {
 
@@ -102,7 +103,7 @@ export class AddBookPage {
   }
 
 
-
+  //Take picture
   takePicture(sourceType: number){
     this.setLocationName();
 
@@ -129,12 +130,12 @@ export class AddBookPage {
       });
   }
 
-
+  //Getting email from current user
   getCurrentUser(){
     return this.af.app.auth().currentUser.email;
   }
 
-
+  //Presenting options to add photo from archive or take new
   presentPictureOptions() {
     let actionSheet = this.actionSheetCtrl.create({
       title: "Add Picture",
@@ -159,6 +160,7 @@ export class AddBookPage {
     actionSheet.present();
   }
 
+  //Getting the users current location to put on Book information
   setLocationName(){
     this.location.getCurrentPosition({
       enableHighAccuracy: true
@@ -177,7 +179,7 @@ export class AddBookPage {
     })
   }
 
-
+  //Scanning barcode from book
   scanBarcode(){
     this.barcodeScanner.scan().then( barcodeData => {
 
