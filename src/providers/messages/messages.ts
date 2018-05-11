@@ -60,9 +60,7 @@ export class MessagesProvider {
         console.log("looking");
         return arr.find( obj => obj.sender === sender && obj.bookId === bookId)
       }).toPromise();
-
-      //.toPromise().then( (e) => {return e.id}).catch( (e) => {return null})
-  }
+    }
 
   public addNewMessagesCollection(messages:Messages){
     return this.collection.add(messages).then(
@@ -74,33 +72,6 @@ export class MessagesProvider {
         return null;
       }
     );
-
-    // return new Promise(((resolve, reject) => {
-    //   this.collection.add(messages)
-    //     .then(function (obj) {
-    //       return obj.id;
-    //     })
-    //     .catch(reject)
-    // }))
-
-    // return new Promise((resolve, reject) =>{
-    //
-    //   this.collection.add(book)
-    //     .then(resolve)
-    //     .catch(reject)
-    // });
-    //
-    //
-    // this.checkIfConversationExists(messages).then((e) => {
-    //   if (e === false) {
-    //     this.collection.add(messages).then( () =>
-    //       this.addMessage(messages, message)
-    //     )
-    //   }else {
-    //     this.addMessage(messages, message)
-    //   }
-    //
-    // });
   }
 
 

@@ -3,12 +3,6 @@ import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angula
 import {AngularFirestore} from "angularfire2/firestore";
 import {SignUpPage} from "../sign-up/sign-up";
 
-/**
- * Generated class for the SignInPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -27,9 +21,6 @@ export class SignInPage {
               private toastController:ToastController) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SignInPage');
-  }
 
   logInUser() {
     this.af.app.auth()

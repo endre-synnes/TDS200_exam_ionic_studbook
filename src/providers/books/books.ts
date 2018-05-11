@@ -43,9 +43,6 @@ export class BooksProvider {
     this.yourBooks = this.getAllBooks().map(
       array => array.filter(
           book => book.seller === email));
-
-    this.yourBooks.forEach(console.log);
-
     return this.yourBooks;
   }
 

@@ -33,10 +33,6 @@ export class MessagesPage {
   }
 
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MessagesPage');
-  }
-
   goToConversation(messages: Messages) {
     this.navCtrl.push('ConversationPage', {messages});
   }

@@ -2,8 +2,6 @@ page-account {
 
   ion-content {
     background: url(https://image.ibb.co/kkGNOy/background.png) no-repeat center center fixed;
-    //background-color: map-get($colors, cosmicLatte) !important;
-
     background-size: cover;
   }
 
@@ -14,7 +12,6 @@ page-account {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    //margin: 0% 10% 0% 0%;
   }
 
   ion-icon{

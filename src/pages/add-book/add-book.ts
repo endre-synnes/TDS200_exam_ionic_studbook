@@ -81,17 +81,12 @@ export class AddBookPage {
       this.book.time = new Date();
 
       let imgFileName = `${this.book.seller}_${new Date().getTime()}.png`;
-      console.log(imgFileName);
 
       let task = this.afStorage
         .ref(imgFileName)
         .putString(this.uploadBase64, 'base64', {contentType: 'image/png'});
 
-      console.log("Uploaded image");
-
       let uploadEvent = task.downloadURL();
-
-      console.log("Downloading url");
 
       uploadEvent.subscribe((uploadImageUrl) => {
         this.book.imgUrl = uploadImageUrl;
@@ -112,7 +107,6 @@ export class AddBookPage {
     this.setLocationName();
 
     const options: CameraOptions = {
-      //destinationType: this.platform.is('ios') ? this.camera.DestinationType.FILE_URI : this.camera.DestinationType.DATA_URL,
       destinationType: this.camera.DestinationType.DATA_URL,
       quality: 50,
       encodingType: this.camera.EncodingType.JPEG,
@@ -131,7 +125,6 @@ export class AddBookPage {
           this.previewImage = normalizeURL(imageData);
         else
           this.previewImage =  imageData;
-        //this.previewImage = "data:image/jpeg;base64," + imageData;
       }, (err) => {
       });
   }
@@ -166,7 +159,6 @@ export class AddBookPage {
     actionSheet.present();
   }
 
-
   setLocationName(){
     this.location.getCurrentPosition({
       enableHighAccuracy: true
@@ -188,7 +180,6 @@ export class AddBookPage {
 
   scanBarcode(){
     this.barcodeScanner.scan().then( barcodeData => {
-      console.log('Barcode data', barcodeData.text);
 
       let loading = this.loadingCtrl.create({
          content : "Looking for book information",

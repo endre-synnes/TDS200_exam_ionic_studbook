@@ -35,9 +35,6 @@ export class MyBooksPage {
 
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MyBooksPage');
-  }
 
   goToAccount() {
     this.navCtrl.push('AccountPage');

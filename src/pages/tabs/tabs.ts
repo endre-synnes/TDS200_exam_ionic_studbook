@@ -13,7 +13,7 @@ export class TabsPage {
 
   allBooks = HomePage;
   myBooks = MyBooksPage;
-  messages = MessagesPage
+  messages = MessagesPage;
 
   constructor(){
 

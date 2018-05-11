@@ -9,7 +9,6 @@ export class LocationProvider {
   private GOOGLE_GEOCODE_API_KEY: string = googleApiEnv.googleApiKey;
 
   constructor(public http: HttpClient) {
-    console.log('LocationProvider started');
   }
 
   getLocation(lat, lng){

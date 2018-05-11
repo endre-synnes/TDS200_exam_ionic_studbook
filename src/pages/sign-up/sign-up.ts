@@ -64,10 +64,7 @@ export class SignUpPage {
             this.profileProvider.addProfile(this.profile);
           }
         }
-
-        console.log(result);
       } catch (e) {
-        console.log(e);
         this.presentToast("Email already in use or invalid password");
       }
     }else {

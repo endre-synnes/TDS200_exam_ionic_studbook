@@ -29,19 +29,8 @@ export class AccountPage {
               private profilePovider: ProfileProvider) {
 
     this.email = this.af.app.auth().currentUser.email;
-
-
-
     this.loadProfile();
-    // this.profiles.map(arr => {
-    //   arr.map( e => {
-    //     console.log("first name: "+e.firstName);
-    //     this.firstName = e.email;
-    //     this.lastName = e.lastName;
-    //   })
-    // });
-
-    this.loadBooks()
+    this.loadBooks();
   }
 
   loadProfile(){
@@ -52,10 +41,7 @@ export class AccountPage {
       this.lastName = profile.lastName;
       this.id = profile.id;
       this.imgUrl = profile.imgUrl
-
     }));
-
-
   }
 
 

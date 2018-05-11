@@ -14,14 +14,12 @@ export class CategoryProvider {
 
   constructor(public http: HttpClient, private af:AngularFirestore) {
     this.collection = af.collection<Category>("categories");
-
   }
 
 
   public getCategory(id:string){
     const document: AngularFirestoreDocument<Category> = this.af.doc('categories/' + id);
     this.category = document.valueChanges();
-
     return this.category;
   }
 

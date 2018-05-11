@@ -24,29 +24,10 @@ page-conversation {
     margin-right: 0;
   }
 
-  .time-mee{
-    width: 100%;
-    float: right;
-    margin-right: 0;
-    background: transparent;
-    text-align: right;
-  }
-
-
   .other{
     background-color: map-get($colors, bone) !important;
     width: 60%;
     margin-left: 0;
-  }
-
-
-  .time-other{
-    width: 100%;
-    margin-left: 0;
-    background: transparent;
-    text-align: left;
-    margin-top: 5%;
-
   }
 
   button{

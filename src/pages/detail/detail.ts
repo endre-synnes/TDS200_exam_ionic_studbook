@@ -7,12 +7,6 @@ import {AngularFirestore} from "angularfire2/firestore";
 import {Messages} from "../../models/Messages";
 import {Message} from "../../models/Message";
 
-/**
- * Generated class for the DetailPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -78,7 +72,7 @@ export class DetailPage {
 
     private presentToast(){
       let toast = this.toastController.create({
-        message: 'Message sent, \n see Messages for conversation.',
+        message: 'Message sent, see Messages for conversation.',
         duration: 4000,
         position: 'middle'
       });
