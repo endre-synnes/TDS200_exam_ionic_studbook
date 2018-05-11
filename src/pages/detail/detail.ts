@@ -63,23 +63,6 @@ export class DetailPage {
         this.message.time = new Date();
         this.text = "";
 
-        // this.messagesProvider.getMessagesObj(this.messages.sender, this.messages.bookId).then(
-        //   response => {
-        //     if (response.sender === this.messages.sender){
-        //       console.log("Messages exist");
-        //       this.messagesProvider.addMessage(response.id, this.message);
-        //     }else {
-        //       console.log("Creating messaes");
-        //       this.messagesProvider.addNewMessagesCollection(this.messages)
-        //         .then( (e) => {
-        //           console.log("adding messages");
-        //           this.messagesProvider.addMessage(e, this.message);
-        //         })
-        //     }
-        //   }
-        // ).catch((e) => console.log("error "+e))
-
-
         this.messagesProvider.addNewMessagesCollection(this.messages)
           .then((e) => {
               console.log("response: " + e);

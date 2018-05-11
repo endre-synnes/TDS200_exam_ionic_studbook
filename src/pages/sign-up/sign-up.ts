@@ -6,7 +6,7 @@ import {
   NavController,
   NavParams,
   normalizeURL,
-  Platform
+  Platform, ToastController
 } from 'ionic-angular';
 import {AngularFirestore} from "angularfire2/firestore";
 import {Profile} from "../../models/Profile";
@@ -45,7 +45,8 @@ export class SignUpPage {
               private camera: Camera,
               private platform: Platform,
               private loadingCtrl: LoadingController,
-              private afStorage: AngularFireStorage
+              private afStorage: AngularFireStorage,
+              private toastController:ToastController
               ) {
   }
 
@@ -139,5 +140,16 @@ export class SignUpPage {
       this.profileProvider.addProfile(this.profile);
     });
 
+  }
+
+
+  private presentToast(message:string){
+    let toast = this.toastController.create({
+      message: message,
+      duration: 4000,
+      position: 'middle'
+    });
+
+    toast.present();
   }
 }

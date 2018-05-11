@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
 import {AngularFirestore} from "angularfire2/firestore";
 import {SignUpPage} from "../sign-up/sign-up";
 
@@ -23,7 +23,8 @@ export class SignInPage {
   };
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              private af: AngularFirestore) {
+              private af: AngularFirestore,
+              private toastController:ToastController) {
   }
 
   ionViewDidLoad() {
@@ -37,11 +38,23 @@ export class SignInPage {
         console.log(response)
       })
       .catch(error => {
-        console.log(error)
+        console.log(error);
+        this.presentToast();
       });
   }
 
   registerUser() {
     this.navCtrl.push('SignUpPage')
+  }
+
+
+  private presentToast(){
+    let toast = this.toastController.create({
+      message: 'Could not log in, check username and password!',
+      duration: 4000,
+      position: 'middle'
+    });
+
+    toast.present();
   }
 }
