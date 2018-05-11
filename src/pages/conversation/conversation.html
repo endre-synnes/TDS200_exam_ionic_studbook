@@ -19,7 +19,6 @@
 
         <ion-card [ngClass]="rowCondition(mess) ? 'mee' : 'other'">
           <ion-card-content>{{mess.time|date:'d, MMM, y, H:mm:ss'}}</ion-card-content>
-          <!--<ion-card-content [ngClass]="rowCondition(mess) ? 'time-mee' : 'time-other'">{{mess.time|date:'d, MMM, y, H:mm:ss'}}</ion-card-content>-->
 
           <ion-card-content style="size: 1.2em">{{mess.text}}</ion-card-content>
         </ion-card>

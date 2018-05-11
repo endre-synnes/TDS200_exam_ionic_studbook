@@ -94,7 +94,7 @@
         <variable name="CAMERA_USAGE_DESCRIPTION" value="need to access camera" />
         <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="need to access photo library" />
     </plugin>
-    <engine name="ios" spec="~4.5.4" />
     <allow-navigation href="http://192.168.1.209:8100" />
     <engine name="android" spec="~7.0.0" />
+    <engine name="ios" spec="~4.5.4" />
 </widget>
